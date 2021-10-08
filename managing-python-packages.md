@@ -1,6 +1,6 @@
 ---
 title: Managing Python Packages
-institute: LAAS-CNRS
+subtitle: Concepts, Tooling, History, and Recommandations
 theme: laas
 author: Guilhem Saurel
 date: 09/12/2019
@@ -12,8 +12,8 @@ monofont: Source Code Pro
 
 ## Available at
 
-- [`https://gitlab.laas.fr/gsaurel/
-managing-python-packages`](https://gitlab.laas.fr/gsaurel/managing-python-packages)
+- [`https://gitlab.laas.fr/gsaurel/talks :
+managing-python-packages.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/managing-python-packages.md)
 - [`https://homepages.laas.fr/gsaurel/talks/
 managing-python-packages.pdf`](https://homepageslaas.fr/gsaurel/talks/managing-python-packages.pdf)
 
@@ -21,9 +21,9 @@ managing-python-packages.pdf`](https://homepageslaas.fr/gsaurel/talks/managing-p
 
 \centering
 
-![CC](cc.png){width=1cm}
-![BY](by.png){width=1cm}
-![SA](sa.png){width=1cm}
+![CC](docs/cc.png){width=1cm}
+![BY](docs/by.png){width=1cm}
+![SA](docs/sa.png){width=1cm}
 
 <https://creativecommons.org/licenses/by-sa/4.0/>
 

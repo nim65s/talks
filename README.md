@@ -1,2 +1,1 @@
-# Managing Python Packages
-
+# Talks
