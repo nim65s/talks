@@ -8,16 +8,16 @@ mainfont: Source Serif 4
 monofont: Source Code Pro
 ---
 
-# This presentation
+## This presentation
 
-## Available at
+### Available at
 
 - [`gitlab.laas.fr/gsaurel/talks :
 managing-python-packages.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/managing-python-packages.md)
 - [`homepages.laas.fr/gsaurel/talks/
 managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/talks/managing-python-packages.pdf)
 
-## Under License
+### Under License
 
 \centering
 
@@ -27,13 +27,13 @@ managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/talks/managing-
 
 <https://creativecommons.org/licenses/by-sa/4.0/>
 
-# Outline
+## Outline
 
-1. What are Python Packages ?
-2. How can they be used ?
-3. Which tools can help us ?
+\tableofcontents
 
-# Modules
+# What are Python Packages ?
+
+## Modules
 
 - `toto.py`
 - `toto.so`
@@ -45,7 +45,7 @@ managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/talks/managing-
 >>> import toto
 ```
 
-# Packages
+## Packages
 
 ```
 toto/
@@ -62,7 +62,7 @@ toto/
 >>> import toto.user_interface
 ```
 
-# Packages
+## Packages
 
 ```
 toto/
@@ -83,9 +83,9 @@ toto/
 >>> import toto.sensors.imu
 ```
 
-# Imports
+## Imports
 
-## don't
+### don't
 
 ```python
 >>> from settings import ROBOT_SIZE
@@ -93,7 +93,7 @@ toto/
 
 . . .
 
-## do
+### do
 
 ```python
 >>> from toto.settings import ROBOT_SIZE
@@ -101,9 +101,9 @@ toto/
 >>> from .settings import ROBOT_SIZE
 ```
 
-# Imports (continued)
+## Imports (continued)
 
-## don't
+### don't
 
 ```python
 >>> from .robot import *
@@ -111,15 +111,17 @@ toto/
 
 . . .
 
-## do
+### do
 
 ```python
 >>> from .robot import start, stop, turn, jump
-# or
+## or
 >>> import .robot as rb
 ```
 
-# `sys.path`
+# How can they be used ?
+
+## `sys.path`
 
 ```python
 In [1]: import sys
@@ -140,7 +142,7 @@ Out[2]:
 
 `sys.prefix + 'lib/pythonX.Y/site-packages'`
 
-# OS package managers
+## OS package managers
 
 ```bash
 $ sudo apt install python3-numpy
@@ -157,9 +159,9 @@ $ dpkg -L python3-numpy
     - your system's other applications
     - any other user of your system
 
-# pip
+## pip
 
-## don't
+### don't
 
 ```bash
 $ sudo pip install --upgrade numpy
@@ -180,9 +182,9 @@ Successfully installed numpy-1.21.2
 '/usr/local/lib/python3.8/dist-packages/numpy/…
 ```
 
-# pip
+## pip
 
-## do
+### do
 
 ```bash
 $ python -m pip install --user --upgrade numpy
@@ -199,7 +201,9 @@ Successfully installed numpy-1.21.2
 /home/user/.local/lib/python3.8/site-packages/…
 ```
 
-# requirements.txt
+# Which tools can help us ?
+
+## requirements.txt
 
 ```bash
 $ cat requirements.txt
@@ -212,7 +216,7 @@ tqdm
 
 `python -m pip install --user -r requirements.txt`
 
-# pip-tools
+## pip-tools
 
 ```bash
 $ cat requirements.in
@@ -221,7 +225,7 @@ $ python -m pip install --user pip-tools
 $ pip-compile
 ```
 
-# pip-tools (continued)
+## pip-tools (continued)
 
 ```bash
 $ cat requirements.txt
@@ -239,7 +243,7 @@ sqlparse==0.4.2
     # via django
 ```
 
-# Managing paths
+## Managing paths
 
 ```bash
 $ Z="lib/python3.8/site-packages"
@@ -248,7 +252,7 @@ $ # or
 $ echo /opt/openrobots/${Z} > ~/.local/${Z}/my.pth
 ```
 
-# virtualenv
+## virtualenv
 
 
 `$ python -m venv ~/project/my_v_env`
@@ -270,7 +274,7 @@ $ echo /opt/openrobots/${Z} > ~/.local/${Z}/my.pth
 └── pyvenv.cfg
 ```
 
-# virtualenv
+## virtualenv (continued)
 
 ```bash
 $ . ~/project/my_v_env/bin/activate
@@ -293,7 +297,7 @@ Out[2]:
  '/home/user/.ipython']
 ```
 
-# virtualenvwrapper
+## virtualenvwrapper
 
 - `mkvirtualenv`
 - `mktmpenv`
@@ -305,7 +309,7 @@ Out[2]:
 
 virtualfish
 
-# Pipenv
+## Pipenv
 
 > Python Development Workflow for Humans
 
@@ -314,7 +318,7 @@ virtualfish
 - pip w/ version pinning
 - virtualenv w/ wrapper
 
-# Poetry
+## Poetry
 
 - pip w/ version pinning (like Pipenv)
 - virtualenv w/ wrapper (like Pipenv)
@@ -323,7 +327,7 @@ virtualfish
 - with better handling of versions
 - without Kenneth Reitz
 
-# Anaconda
+## Anaconda
 
 > The World's Most Popular Data Science Platform
 
@@ -334,7 +338,7 @@ virtualfish
 - a separate package manager (conda)
 - with commercial support
 
-# My recommandations
+## My recommandations
 
 1. `python -m pip install --user --upgrade some-pkg`
 
