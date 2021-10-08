@@ -1,0 +1,6 @@
+build:
+  image:
+    name: memmos.laas.fr:5000/gsaurel/pandoc
+    entrypoint: [""]
+  script:
+    - pandoc -s --highlight-style kate -t beamer --pdf-engine=xelatex managing-python-packages.md -o managing-python-packages.pdf
