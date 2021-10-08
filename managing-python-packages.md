@@ -12,9 +12,9 @@ monofont: Source Code Pro
 
 ## Available at
 
-- [`https://gitlab.laas.fr/gsaurel/talks :
+- [`gitlab.laas.fr/gsaurel/talks :
 managing-python-packages.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/managing-python-packages.md)
-- [`https://homepages.laas.fr/gsaurel/talks/
+- [`homepages.laas.fr/gsaurel/talks/
 managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/talks/managing-python-packages.pdf)
 
 ## Under License
