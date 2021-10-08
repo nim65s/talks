@@ -15,7 +15,7 @@ monofont: Source Code Pro
 - [`https://gitlab.laas.fr/gsaurel/talks :
 managing-python-packages.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/managing-python-packages.md)
 - [`https://homepages.laas.fr/gsaurel/talks/
-managing-python-packages.pdf`](https://homepageslaas.fr/gsaurel/talks/managing-python-packages.pdf)
+managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/talks/managing-python-packages.pdf)
 
 ## Under License
 
@@ -26,6 +26,12 @@ managing-python-packages.pdf`](https://homepageslaas.fr/gsaurel/talks/managing-p
 ![SA](docs/sa.png){width=1cm}
 
 <https://creativecommons.org/licenses/by-sa/4.0/>
+
+# Outline
+
+1. What are Python Packages ?
+2. How can they be used ?
+3. Which tools can help us ?
 
 # Modules
 
