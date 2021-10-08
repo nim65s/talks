@@ -1,4 +1,4 @@
-SOURCES = $(filter-out README.md,$(wildcard *.md))
+SOURCES = $(wildcard *.md)
 PDFS = $(SOURCES:%.md=%.pdf)
 DEST = "/usr/local/homepages/gsaurel/talks"
 
