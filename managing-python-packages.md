@@ -21,9 +21,9 @@ managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/talks/managing-
 
 \centering
 
-![CC](docs/cc.png){width=1cm}
-![BY](docs/by.png){width=1cm}
-![SA](docs/sa.png){width=1cm}
+![CC](media/cc.png){width=1cm}
+![BY](media/by.png){width=1cm}
+![SA](media/sa.png){width=1cm}
 
 <https://creativecommons.org/licenses/by-sa/4.0/>
 

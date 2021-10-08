@@ -1,5 +1,6 @@
 SOURCES = $(filter-out README.md,$(wildcard *.md))
 PDFS = $(SOURCES:%.md=%.pdf)
+DEST = "/usr/local/homepages/gsaurel/talks"
 
 all: ${PDFS}
 
@@ -7,4 +8,5 @@ all: ${PDFS}
 	pandoc -s -t beamer --highlight-style kate --pdf-engine xelatex $< -o $@
 
 publish: all
-	cp ${PDFS} /usr/local/homepages/gsaurel/talks
+	cp ${PDFS} ${DEST}
+	chmod -R a+r ${DEST}
