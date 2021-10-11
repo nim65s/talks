@@ -45,6 +45,23 @@ managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/talks/managing-
 >>> import toto
 ```
 
+## example `toto.py` or `toto/__init__.py`
+
+```python
+from datetime import datetime
+from pathlib import Path
+
+
+def my_log(line: str, filename: Path):
+    with filename.open('a') as handle:
+        print(f'{datetime.now()}: {line}', file=handle)
+
+
+if __name__ == '__main__':
+    log_file = Path('/tmp/log.txt')
+    my_log("test string", log_file)
+```
+
 ## Packages
 
 ```
@@ -88,7 +105,7 @@ toto/
 ### don't
 
 ```python
->>> from settings import ROBOT_SIZE
+from settings import ROBOT_SIZE
 ```
 
 . . .
@@ -96,9 +113,16 @@ toto/
 ### do
 
 ```python
->>> from toto.settings import ROBOT_SIZE
+from toto.settings import ROBOT_SIZE
 # or
->>> from .settings import ROBOT_SIZE
+from .settings import ROBOT_SIZE
+```
+
+. . .
+
+```python
+import toto  # or import toto.settings
+toto.settings.ROBOT_SIZE
 ```
 
 ## Imports (continued)
@@ -106,7 +130,7 @@ toto/
 ### don't
 
 ```python
->>> from .robot import *
+from .robot import *
 ```
 
 . . .
@@ -114,9 +138,9 @@ toto/
 ### do
 
 ```python
->>> from .robot import start, stop, turn, jump
-## or
->>> import .robot as rb
+from .robot import start, stop, turn, jump
+# or
+import .robot as rb
 ```
 
 # How can they be used ?
@@ -179,7 +203,7 @@ Successfully installed numpy-1.21.2
 >>> numpy.__version__
 '1.21.2'
 >>> numpy.__file__
-'/usr/local/lib/python3.8/dist-packages/numpy/…
+'/usr/local/lib/python3.8/dist-packages/numpy/…'
 ```
 
 ## pip
@@ -198,7 +222,7 @@ Successfully installed numpy-1.21.2
 >>> numpy.__version__
 '1.21.2'
 >>> numpy.__file__
-/home/user/.local/lib/python3.8/site-packages/…
+'/home/user/.local/lib/python3.8/site-packages/…'
 ```
 
 # Which tools can help us ?
@@ -214,7 +238,9 @@ requests
 tqdm
 ```
 
-`python -m pip install --user -r requirements.txt`
+```bash
+python -m pip install --user -r requirements.txt
+```
 
 ## pip-tools
 
@@ -255,12 +281,14 @@ $ echo /opt/openrobots/${Z} > ~/.local/${Z}/my.pth
 ## virtualenv
 
 
-`$ python -m venv ~/project/my_v_env`
+```bash
+$ python -m venv ~/my_v_env
+```
 
 . . .
 
 ```
-~/project/my_v_env/
+~/my_v_env/
 ├── bin/
 │   ├── activate
 │   ├── pip
@@ -277,9 +305,9 @@ $ echo /opt/openrobots/${Z} > ~/.local/${Z}/my.pth
 ## virtualenv (continued)
 
 ```bash
-$ . ~/project/my_v_env/bin/activate
+$ . ~/my_v_env/bin/activate
 (my_v_env) $ which python
-/home/user/project/my_v_env/bin/python
+/home/user/my_v_env/bin/python
 ```
 
 ```python
@@ -287,23 +315,22 @@ In [1]: import sys
 
 In [2]: sys.path
 Out[2]:
-['/home/user/project/my_v_env/bin',
+['/home/user/my_v_env/bin',
  '/usr/lib/python38.zip',
  '/usr/lib/python3.8',
  '/usr/lib/python3.8/lib-dynload',
  '',
- '/home/user/project/my_v_env/lib/python3.8/site-packages',
- '/home/user/project/my_v_env/lib/python3.8/site-packages/IPython/extensions',
+ '/home/user/my_v_env/lib/python3.8/site-packages',
  '/home/user/.ipython']
 ```
 
 ## virtualenvwrapper
 
 - `mkvirtualenv`
-- `mktmpenv`
 - `workon`
 - `deactivate`
 - `.venv` file
+- `mktmpenv`
 
 . . .
 
@@ -336,6 +363,9 @@ virtualfish
 - a separate package format
 - a separate package repository (condaforge)
 - a separate package manager (conda)
+
+. . .
+
 - with commercial support
 
 ## My recommandations
@@ -349,3 +379,7 @@ virtualfish
 . . .
 
 3. poetry
+
+## Questions ?
+
+Thanks for your attention :)
