@@ -8,14 +8,14 @@ mainfont: Source Serif 4
 monofont: Source Code Pro
 ---
 
-# This presentation
+## This presentation
 
-## Available at
+### Available at
 
 - [`gitlab.laas.fr/gsaurel/talks : howto.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/howto.md)
 - [`homepages.laas.fr/gsaurel/talks/howto.pdf`](https://homepages.laas.fr/gsaurel/talks/howto.pdf)
 
-## Under License
+### Under License
 
 \centering
 
@@ -25,15 +25,20 @@ monofont: Source Code Pro
 
 <https://creativecommons.org/licenses/by-sa/4.0/>
 
+## Table of contents
 
-# Slide title
+\tableofcontents
+
+# First Part
+
+## Slide title
 
 How-to Slides
 
 Formating: *em* **bold** `mono` ~~strikethrough~~
 text~subscript~^superscript^
 
-# {Un,}ordered Lists, pause
+## {Un,}ordered Lists, pause
 
 - eggs
 - butter
@@ -46,7 +51,7 @@ text~subscript~^superscript^
 3. Words
 4. You
 
-# Code
+## Code
 ```python
 #!/usr/bin/env python3
 from math import pi as π
@@ -61,7 +66,9 @@ class Circle:
         self.S = π * r ** 2
 ```
 
-# Maths
+# Second Part
+
+## Maths
 
 $\begin{aligned}
 \vec{\nabla} \cdot  \vec{\mathcal{E}} & = \frac{\rho}{\epsilon_0} \\
@@ -70,7 +77,7 @@ $\begin{aligned}
 \vec{\nabla} \times \vec{\mathcal{B}} & = \mu_0\vec{\mathcal{J}} + \epsilon_0\frac{\partial \vec{\mathcal{E}}}{\partial t}
 \end{aligned}$
 
-# Tables
+## Tables
 
 | Right | Left | Default | Center |
 |------:|:-----|---------|:------:|
@@ -78,14 +85,14 @@ $\begin{aligned}
 |  123  |  123 |   123   |   123  |
 |  *1*  |  `1` |  **1**  |  ~~1~~ |
 
-# Images
+## Images
 
 ![Doc](media/doc.jpg){width=5cm}
 
-# Citations
+## Citations
 
 > Look ! The trees… They're moving !
 
 \hfill --- @transhumus
 
-# References
+## References
