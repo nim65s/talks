@@ -363,6 +363,7 @@ virtualfish
 - a separate package format
 - a separate package repository (condaforge)
 - a separate package manager (conda)
+- incompatible with everything else you already have
 
 . . .
 
