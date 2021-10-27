@@ -12,9 +12,9 @@ monofont: Source Code Pro
 
 ### Available at
 
-- [`gitlab.laas.fr/gsaurel/talks :
-managing-python-packages.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/managing-python-packages.md)
-- [`homepages.laas.fr/gsaurel/talks/
+\centering
+
+[`homepages.laas.fr/gsaurel/talks/
 managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/talks/managing-python-packages.pdf)
 
 ### Under License
@@ -26,6 +26,22 @@ managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/talks/managing-
 ![SA](media/sa.png){width=1cm}
 
 <https://creativecommons.org/licenses/by-sa/4.0/>
+
+## This presentation (continued)
+
+### Source
+
+\centering
+
+[`gitlab.laas.fr/gsaurel/talks :
+managing-python-packages.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/managing-python-packages.md)
+
+### Discussions
+
+\centering
+
+<!-- \href doesn't like #, so let's directly use \url -->
+\url{https://matrix.to/\#/\#managing-python-packages:laas.fr}
 
 ## Outline
 
