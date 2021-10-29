@@ -41,7 +41,7 @@ managing-python-packages.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/m
 \centering
 
 <!-- \href doesn't like #, so let's directly use \url -->
-\url{https://matrix.to/\#/\#managing-python-packages:laas.fr}
+\url{https://im.laas.fr/\#/room/\#managing-python-packages:laas.fr}
 
 ## Outline
 
