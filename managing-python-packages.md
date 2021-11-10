@@ -137,6 +137,7 @@ from .settings import ROBOT_SIZE
 . . .
 
 ```python
+# or
 import toto  # or import toto.settings
 toto.settings.ROBOT_SIZE
 ```
@@ -172,6 +173,7 @@ Out[2]:
  '/usr/lib/python3.8',
  '/usr/lib/python3.8/lib-dynload',
  '',
+ '/home/user/.local/lib/python3.8/site-packages',
  '/usr/local/lib/python3.8/dist-packages',
  '/usr/lib/python3/dist-packages']
 ```
@@ -181,6 +183,15 @@ Out[2]:
 [https://docs.python.org/3/library/site](https://docs.python.org/3/library/site):
 
 `sys.prefix + 'lib/pythonX.Y/site-packages'`
+
+## Managing paths
+
+```bash
+$ SP="lib/python3.8/site-packages"
+$ export PYTHONPATH=/opt/openrobots/${SP}
+$ # or
+$ echo /opt/openrobots/${SP} > ~/.local/${SP}/my.pth
+```
 
 ## OS package managers
 
@@ -241,6 +252,45 @@ Successfully installed numpy-1.21.2
 '/home/user/.local/lib/python3.8/site-packages/…'
 ```
 
+## Package your own project
+
+With a `setup.py`:
+
+```python
+from setuptools import setup
+
+setup(
+    name="toto",
+    version="1.0.0",
+    packages=["toto"],
+)
+```
+
+## pip (continued)
+
+### Local path
+
+```bash
+$ python -m pip install --user .
+```
+
+. . .
+
+### Editable path
+
+```bash
+$ python -m pip install --user --editable .
+```
+
+. . .
+
+### VCS URL
+
+```bash
+$ python -m pip install --user \
+    'git+https://github.com/psf/black#egg=black'
+```
+
 # Which tools can help us ?
 
 ## requirements.txt
@@ -248,7 +298,6 @@ Successfully installed numpy-1.21.2
 ```bash
 $ cat requirements.txt
 numpy>=1.16
-ipython
 quadprog==0.1.7
 requests
 tqdm
@@ -262,7 +311,7 @@ python -m pip install --user -r requirements.txt
 
 ```bash
 $ cat requirements.in
-django<3
+django<4
 $ python -m pip install --user pip-tools
 $ pip-compile
 ```
@@ -277,21 +326,14 @@ $ cat requirements.txt
 #
 #    pip-compile
 #
-django==2.2.24
+asgiref==3.4.1
+    # via django
+django==3.2.9
     # via -r requirements.in
 pytz==2021.3
     # via django
 sqlparse==0.4.2
     # via django
-```
-
-## Managing paths
-
-```bash
-$ Z="lib/python3.8/site-packages"
-$ export PYTHONPATH=/opt/openrobots/${Z}
-$ # or
-$ echo /opt/openrobots/${Z} > ~/.local/${Z}/my.pth
 ```
 
 ## virtualenv
@@ -365,8 +407,7 @@ virtualfish
 
 - pip w/ version pinning (like Pipenv)
 - virtualenv w/ wrapper (like Pipenv)
-- with replacement for `setup.py` (packaging)
-- with replacement for `setup.cfg` (tooling configuration)
+- with replacement for `setup.py` / `setup.cfg`
 - with better handling of versions
 - without Kenneth Reitz
 
@@ -387,15 +428,17 @@ virtualfish
 
 ## My recommandations
 
-1. `python -m pip install --user --upgrade some-pkg`
+1. `sudo apt install python3-toto`
+
+2. `python -m pip install --user --upgrade toto`
 
 . . .
 
-2. `python -m venv venv`
+3. `python -m venv venv`
 
 . . .
 
-3. poetry
+4. poetry
 
 ## Questions ?
 
