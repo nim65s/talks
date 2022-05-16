@@ -35,13 +35,11 @@ python-tooling.pdf`](https://homepages.laas.fr/gsaurel/talks/python-tooling.pdf)
 [`https://gitlab.laas.fr/gsaurel/talks :
 python-tooling.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/python-tooling.md)
 
-<!--
 ### Discussions
 
 \centering
 
 \url{https://im.laas.fr/\#/room/\#python-tooling:laas.fr}
--->
 
 ## Outline
 
@@ -76,7 +74,7 @@ The Zen of Python, by Tim Peters (extracts)
 
 ### Style Guide for Python Code
 
-https://peps.python.org/pep-0008/
+[https://peps.python.org/pep-0008/](https://peps.python.org/pep-0008/)
 
 - indentation: 4 spaces
 - maximum line length: 79
@@ -86,7 +84,7 @@ https://peps.python.org/pep-0008/
 
 ## pep8 → pycodestyle
 
-https://github.com/PyCQA/pycodestyle
+[https://github.com/PyCQA/pycodestyle](https://github.com/PyCQA/pycodestyle)
 
 . . .
 
@@ -102,7 +100,7 @@ optparse.py:472:29: E221 multiple spaces before operator
 
 ## PEP 257 / pydocstyle
 
-https://github.com/PyCQA/pydocstyle
+[https://github.com/PyCQA/pydocstyle](https://github.com/PyCQA/pydocstyle)
 
 Mostly helps as a reminder to write some doc
 
@@ -118,13 +116,13 @@ test:75 in public function `init_database`:
 
 ## flake8
 
-https://github.com/PyCQA/flake8
+[https://github.com/PyCQA/flake8](https://github.com/PyCQA/flake8)
 
 pycodestyle  + pyflakes + mccabe
 
 ## yapf
 
-https://github.com/google/yapf
+[https://github.com/google/yapf](https://github.com/google/yapf)
 
 clang-format / gofmt
 
@@ -143,7 +141,7 @@ x = {'a': 37, 'b': 42, 'c': 927}
 
 ## black
 
-https://github.com/psf/black
+[https://github.com/psf/black](https://github.com/psf/black)
 
 ![black](media/black.png)
 
@@ -173,7 +171,7 @@ super_long_line.with_small_argument = [0]
 
 ## isort
 
-https://github.com/PyCQA/isort
+[https://github.com/PyCQA/isort](https://github.com/PyCQA/isort)
 
 sorts imports.
 
@@ -181,7 +179,7 @@ sorts imports.
 
 ## Poetry
 
-https://github.com/python-poetry/poetry
+[https://github.com/python-poetry/poetry](https://github.com/python-poetry/poetry)
 
 - `poetry init`
 - `pyproject.toml`
@@ -198,7 +196,7 @@ ref. "[Managing Python Packages](https://homepages.laas.fr/gsaurel/talks/managin
 
 ## unittest
 
-https://docs.python.org/3/library/unittest.html
+[https://docs.python.org/3/library/unittest.html](https://docs.python.org/3/library/unittest.html)
 
 ```python
 import unittest
@@ -244,7 +242,7 @@ OK
 
 ## doctest
 
-https://docs.python.org/3/library/doctest.html
+[https://docs.python.org/3/library/doctest.html](https://docs.python.org/3/library/doctest.html)
 
 ```python
 def factorial(n):
@@ -279,7 +277,7 @@ if __name__ == "__main__":
 
 ## Coverage.py
 
-https://github.com/nedbat/coveragepy
+[https://github.com/nedbat/coveragepy](https://github.com/nedbat/coveragepy)
 
 ```
 $ coverage run -m unittest discover
@@ -348,7 +346,7 @@ Found 2 errors in 1 file (checked 1 source file)
 
 ## pyupgrade
 
-https://github.com/asottile/pyupgrade
+[https://github.com/asottile/pyupgrade](https://github.com/asottile/pyupgrade)
 
 ```diff
  class C(Base):
@@ -369,7 +367,7 @@ Bring your own ;)
 
 ## pre-commit
 
-https://github.com/pre-commit/pre-commit
+[https://github.com/pre-commit/pre-commit](https://github.com/pre-commit/pre-commit)
 
 `.pre-commit-config.yaml`
 
@@ -405,7 +403,7 @@ demo
 
 ## pre-commit CI
 
-https://pre-commit.ci/
+[https://pre-commit.ci/](https://pre-commit.ci/)
 
 ## Badges
 
