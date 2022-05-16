@@ -369,7 +369,43 @@ Bring your own ;)
 
 ## pre-commit
 
+https://github.com/pre-commit/pre-commit
+
+`.pre-commit-config.yaml`
+
+```yaml
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+    -   id: black
+```
+
+## pre-commit usage
+
+```
+pre-commit run -a
+```
+
+. . .
+
+```
+pre-commit install
+```
+
+. . .
+
+demo
+
 ## pre-commit CI
+
+https://pre-commit.ci/
 
 ## Badges
 
