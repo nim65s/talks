@@ -1,4 +1,17 @@
+image: memmos.laas.fr:5000/gsaurel/talks
+
 build:
-  image: memmos.laas.fr:5000/gsaurel/talks
+  stage: build
   script:
     - make
+
+deploy:
+  stage: deploy
+  only:
+    refs:
+      - main
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | ssh-add -
+  script:
+    - make deploy

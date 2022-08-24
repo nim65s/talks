@@ -2,7 +2,7 @@ FROM pandoc/latex
 
 ENTRYPOINT []
 
-RUN apk --no-cache add make
+RUN apk --no-cache add make rsync
 
 # Add Adobe open source fonts
 RUN mkdir -p /usr/share/fonts/tmp /usr/share/fonts/adobe-source \

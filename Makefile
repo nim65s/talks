@@ -1,17 +1,24 @@
-SOURCES = $(filter-out README.md,$(wildcard *.md))
-PDFS = $(SOURCES:%.md=%.pdf)
+SOURCES = $(filter-out README.md, $(wildcard *.md))
+OUTPUTS = $(SOURCES:%.md=public/%.pdf)
 DEST = "/usr/local/homepages/gsaurel/talks"
 
-all: ${PDFS}
+all: ${OUTPUTS}
 
-%.pdf: %.md
-	pandoc -s -t beamer \
-		--citeproc --bibliography references.bib \
+public/%.pdf: %.md references.bib
+	pandoc -s \
+		-t beamer \
+		--citeproc \
+		--bibliography references.bib \
 		--highlight-style kate \
 		--pdf-engine xelatex \
 		--fail-if-warnings \
-		$< -o $@
+		-o $@ $<
 
-publish: all
-	cp ${PDFS} ${DEST}
-	chmod -R a+r ${DEST}
+check: all
+
+deploy: check
+	chmod a+r,g+w ${OUTPUTS}
+	rsync -avzP --delete public/ gsaurel-deploy@memmos.laas.fr:${DEST}
+
+clean:
+	rm -f ${OUTPUTS}
