@@ -22,3 +22,14 @@ RUN cd /opt/texlive/texmf-local/tex/latex/ \
  && unzip laas-beamer-theme-main.zip \
  && rm *.zip \
  && mktexlsr
+
+# Set uid / gid for deploy
+RUN addgroup --gid 1110 gepetto \
+ && adduser --ingroup gepetto --disabled-password --uid 5495 gsaurel
+USER gsaurel
+
+# Get ssh host key for deploy
+RUN mkdir -p ~/.ssh \
+ && ssh-keyscan "memmos.laas.fr" > ~/.ssh/known_hosts \
+ && chmod 700 ~/.ssh \
+ && chmod 644 ~/.ssh/known_hosts
