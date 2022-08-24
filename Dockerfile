@@ -24,8 +24,8 @@ RUN cd /opt/texlive/texmf-local/tex/latex/ \
  && mktexlsr
 
 # Set uid / gid for deploy
-RUN addgroup --gid 1110 gepetto \
- && adduser --ingroup gepetto --disabled-password --uid 5495 gsaurel
+RUN addgroup --gid 1046 idea \
+ && adduser --ingroup idea --disabled-password --uid 5495 gsaurel
 USER gsaurel
 
 # Get ssh host key for deploy
