@@ -10,3 +10,9 @@
 ## Build
 
 `make` will run the right pandoc commands to transpile markdown source files into PDF presentations.
+
+## Mirrors
+
+This git repository is available at:
+- https://gitlab.laas.fr/gsaurel/talks with CI/CD to https://homepages.laas.fr/gsaurel/talks/
+- https://github.com/nim65s/talks with CI/CD to https://nim65s.github.io/talks/
