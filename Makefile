@@ -2,7 +2,7 @@ SOURCES = $(filter-out README.md, $(wildcard *.md))
 OUTPUTS = $(SOURCES:%.md=public/%.pdf)
 DEST = "/usr/local/homepages/gsaurel/talks"
 
-all: ${OUTPUTS}
+all: ${OUTPUTS} public/index.html
 
 public/%.pdf: %.md references.bib
 	pandoc -s \
@@ -14,6 +14,9 @@ public/%.pdf: %.md references.bib
 		--fail-if-warnings \
 		-o $@ $<
 
+public/index.html: ${SOURCES} index.py
+	./index.py
+
 check: all
 
 deploy: check
@@ -21,4 +24,4 @@ deploy: check
 	rsync -avzP --delete public/ gsaurel-deploy@memmos.laas.fr:${DEST}
 
 clean:
-	rm -f ${OUTPUTS}
+	rm -f ${OUTPUTS} public/index.html
