@@ -56,7 +56,7 @@ git-forges.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/git-forges.md)
     - authorizations
     - issue tracker
 
-## Hirarchy
+## Hierarchy
 
 1. domain
 2. username *OR* group (organization)
