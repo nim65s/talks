@@ -128,12 +128,12 @@ Portes Locale Vs Nationnales
 ## Tarifs (€ TTC)
 FAS = frais d'accès au service, que la fibre soit déjà là ou pas
 
-|  Offre |     FAS  |  Prix mensuel  |
-|------|-----|-----|
-| Altitude Best Effort |  180.00 | 35.00  |
-| Altitude Business |   360.00 | 49.00 |
-| Kosc    | 120.00 | 54.00  |
-| Bouygues | 180.00 | 56.00 |
+|  Offre |     FAS  |  Mensuel  | Débits |
+|------|-----|-----|-----|
+| Altitude Best Effort |  180€ | 35€  | 1G / 200M |
+| Altitude Business |   360€ | 49€ | 1G / 200M prio |
+| Kosc    | 120€ | 54€  | 1G / 800M |
+| Bouygues | 180€ | 56€ | 1G / 500M, 20M garanti |
 
 ### Adhésion association
 
