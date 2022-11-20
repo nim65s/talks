@@ -10,6 +10,8 @@ monofont: Source Code Pro
 
 ## C'est quoi Tetaneutral.net ?
 
+<https://tetaneutral.net>
+
 Création association,
 
 Création FFDN,
@@ -32,6 +34,8 @@ Hébergeur de chatons
 
 Pas de salarié ni subvention, transparence financière
 
+Limites: Moyens financiers, Temps bénvévoles
+
 Bénévoles, formation technique / éducation populaire
 
 Accès à une infrastructure sympathique pour apprendre
@@ -48,13 +52,46 @@ Moyens pédagogiques à disposition des enseignants
 
 Collaboration avec tous les acteurs intéressés
 
-## FTTH: Cadre
+# FTTH
 
-ARCEP, gouvernement, répartition FTTH en France ZTD, AMII, campagne <https://cartefibre.arcep.fr/>
+## Cadre
 
-physiquement de bout en bout à partir du routeur, puis converto, PTO, boitier poteau ou rue, armoire de rue "ideaoptical", PM, NRO, collecte
+ARCEP, gouvernement, répartition FTTH en France: ZTD, AMII, AMEL, RIP
 
-Notion de porte de collecte operateur, Altitude infrastrucre, Kosc, Bouygues
+- L’Arcep, gendarme des engagements AMII et AMEL
+
+- Une zone AMII est une partie du territoire dans laquelle un ou plusieurs opérateurs privés ont manifesté leur intérêt pour déployer un réseau en fibre optique FTTH.
+
+- AMEL: Appel à manifestation d’engagements locaux
+
+- RIP: Réseaux d’initiative publique
+
+
+<https://cartefibre.arcep.fr/>
+<https://www.arcep.fr/fileadmin/user_upload/espace_collectivites/rapport-TC-2020/rapport-TC-2020-CHAP2_FICHE3.pdf>
+
+## Carte
+
+![](https://fibre.guide/wp-content/uploads/2017/08/carte-zones-amii.png)
+
+## Chez nous
+
+
+<https://fr.wikipedia.org/wiki/R%C3%A9seau_FTTH>
+
+Les codes des opérateurs d'immeubles sont des codes composés de 2 caractères alphanumériques destinés à identifier les prises FTTH (PTO). Ils sont attribués par l'Arcep comme suit
+
+> Fibre 31     => HG
+
+
+
+## Techno
+
+À la commande, soit l’Opérateur d’Infrastructure nous construit la ligne, soit il nous la transfère
+
+Physiquement de bout en bout à partir du routeur, puis converto, PTO, boitier poteau ou rue, armoire de rue "ideaoptical", PM, NRO, collecte
+
+Notion de porte de collecte operateur, Altitude infrastructure, Kosc, Bouygues
 
 ## Fibre dans la fédération FFDN
 
@@ -65,9 +102,11 @@ Notion de STAS, montrer un exemple de table des matieres
 
 Plusieurs portes, plusieurs setups techniques
 
+Portes Locale Vs Nationnales
+
 ## Exemple fibre31 = Altitude Infrastructure
 
-https://www.fibre31.fr/wp-content/uploads/sites/13/2019/04/Offres-dacc%C3%A8s-FTTH-actif.pdf
+<https://www.fibre31.fr/wp-content/uploads/sites/13/2019/04/Offres-dacc%C3%A8s-FTTH-actif.pdf>
 
 181 pages, page 134 la technique = ANNEXE 4 – STAS
 "Spécifications Techniques d’Accès au Service"
@@ -81,9 +120,9 @@ https://www.fibre31.fr/wp-content/uploads/sites/13/2019/04/Offres-dacc%C3%A8s-FT
 
 | Opérateur | Couverture |
 |-----|------------|
-| Altitude (fibre 31) | Zone RIP (campagne) 31, 82 |
-| Kosc | Zones denses + AMII (?) |
-| Bouygues | Zones denses + AMII (?) |
+| Altitude (fibre 31) | Zone RIP (campagne) 31, (82) |
+| Kosc (france) | ZTD + AMII |
+| Bouygues (france) | ZTD + AMII |
 
 
 ## Tarifs (€ TTC)
@@ -96,32 +135,40 @@ FAS = frais d'accès au service, que la fibre soit déjà là ou pas
 | Kosc    | 120.00 | 54.00  |
 | Bouygues | 180.00 | 56.00 |
 
-## Adhésion association
+### Adhésion association
 
-Prix libre suggéré **20 €/an**
+Prix libre, suggéré **20 €/an**
+
 Pas de service TV ni téléphone
 
 ## La box
 
 Celle que vous voulez, un PC linux, un routeur wifi OpenWRT (linux pour petits routeurs) (exemple [Turris Omnia ou Mox](https://www.turris.com/en/))
 
+On aidera les gens qui savent pas gérer ça
+
 ## Historique fibre tetaneutral.net en ZTD
 
-Fibres dédiées à un lieu
+Fibres dédiées à un lieu (dans Toulouse)
 
 Local associatif Mix'Art Myrys (maintenant fermé administrativement)
 
-Habitat Participatif "4 vents" (environ 50 abo FTTH dans un immeuble)
+Habitat Participatif "4 vents" (environ 50 abo FTTH, potentiellement à 10G, 30€ / mois, dans un immeuble depuis 2018) => on peut recommencer
 
-Local associatif Picto (déménagement Mix'Art Myrys)
+Local associatif "Picto" (déménagement Mix'Art Myrys)
 
 ## État actuel
 
-On a déja deux FTTH qui marchent sur l'offre fibre31 business dont une ou la ligne fibre n'était pas présente et a été crée par la commande tetaneutral.net
+On a déja deux FTTH qui marchent sur l'offre fibre31 business dont une ou la ligne fibre n'était pas présente et a été
+crée par la commande tetaneutral.net:
+
+![](media/ftth.png)
 
 ## Projet technique
 
 - renforcer l'infrastructure de routage
 - partie humaine : suivi et commande et mise  en place et suivi de la trésorerie et des prélèvement automatiques
 
-Bénévoles bienvenu·e·s
+Bénévoles bienvenu·e·s:
+- <https://tetaneutral.net/participer/>
+- <https://tetaneutral.net/contact/>
