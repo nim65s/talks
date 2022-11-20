@@ -104,36 +104,74 @@ def build_wheel(...):
     run("cmake --install build")
 ```
 
-## Wheel
-
-PEP 427:
+## Wheel (PEP 427)
 
 > A wheel is a ZIP-format archive with a specially formatted file name and the .whl extension.
 
+. . .
+
+eg: `hpp_fcl-2.1.3-4-cp310-cp310-manylinux_2_28_x86_64.whl`
+
+## Config: `pyproject.toml` (PEP 518)
+
+```toml
+[project]
+name = "cmeel-example"
+version = "0.2.3"
+description = "Example project"
+readme = "README.md"
+license = "BSD-2-Clause"
+authors = ["guilhem.saurel@laas.fr"]
+
+[project.urls]
+repository = "https://github.com/cmake-wheel/cmeel-example.git"
+
+[build-system]
+requires = ["cmeel[build]"]
+build-backend = "cmeel.build"
+```
+
+## Use
+
+- `python -m pip install \ git+https://github.com/cmake-wheel/cmeel-example.git`
+- `python -m pip install cmeel-example`
+
+. . .
+
+- `cmeel-add 3 4`
+- `python -c "import cmeel_example; print(cmeel_example.cmeel_add(3, 4))"`
+
+## Publish your packages to PyPI from CI
+
+with cibuildwheel and github actions for:
+
+- CPython 3.7 - 3.11 / pypy 3.7 - 3.9
+- manylinux / musllinux / macos
+- x86_64 / aarch64 / ppc64le / i686 / s390x
+
+And cirrus-CI for Apple Silicon
 
 ## Design
 
 - `-DCMAKE_INSTALL_PREFIX=${SITELIB}/cmeel.prefix`
 - `${SITELIB}/cmeel.pth`
-- `…/bin`: `cmeel.run:cmeel_run`
-- set relative binaries `RPATH`
+- `…/cmeel.prefix/bin` => `cmeel.run:cmeel_run`
 - helpers for `$CMAKE_PREFIX_PATH`, `$LD_LIBRARY_PATH`, …
+
+. . .
+
+Contraintes:
+
+- CMake
+- paquets relocalisables
+- `RPATH` / `@loader_path`
 
 
 ## References
 
 - <https://github.com/cmake-wheel/cmeel>
 - <https://github.com/cmake-wheel/cmeel-example>
-
-. . .
-
-- `python -m pip install cmeel-example`
-- `python -m pip install \ git+https://github.com/cmake-wheel/cmeel-example.git`
-
-. . .
-
-- `cmeel-add 3 4`
-- `python -c "import cmeel_example; print(cmeel_example.cmeel_add(3, 4))"`
+- <https://cmeel.rtfd.io>
 
 ## C’est tout pour moi !
 
