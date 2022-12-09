@@ -166,7 +166,23 @@ Et les initialiser dans `init()`
 ## Rx Task
 
 - lit les bytes sur `UART_NUM_0` un par un
-- quand 4 bytes correspondent à `HEADER`, on lit `sizeof(message_t)`
+- quand 4 bytes correspondent à `HEADER`, lit `sizeof(message_t)`
+- envoie ce `message_t` sur `rx_queue`
+
+## Bank Task
+
+- possède un `uint32_t balance = 100;`
+- pour chaque message sur `rx_queue`
+    - fait l’opération demandée si elle est possible
+    - écrit une réponse, et l’envoie sur `tx_queue`
+
+## Tx Task
+
+- pour chaque messages sur `tx_queue`:
+    - envoie le `HEADER` sur `UART_NUM_0`
+    - envoie le message sur `UART_NUM_0`
+
+
 
 ## Client
 
