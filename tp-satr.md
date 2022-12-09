@@ -66,7 +66,6 @@ CONFIG_XTAL_FREQ_26=y
 CONFIG_XTAL_FREQ=26
 ```
 
-. . .
 
 ```
 idf.py build
@@ -90,7 +89,6 @@ CONFIG_XTAL_FREQ_26=y
 CONFIG_XTAL_FREQ=26
 ```
 
-. . .
 
 ```
 idf.py build
@@ -114,7 +112,6 @@ CONFIG_XTAL_FREQ_26=y
 CONFIG_XTAL_FREQ=26
 ```
 
-. . .
 
 ```
 idf.py build
@@ -136,6 +133,8 @@ idf.py monitor
 
 
 ## Messages
+
+`typedef struct { ... } message_t;`, avec:
 
 - MessageType: Entier, 8bits
 - Action: Entier, 8bits
@@ -163,6 +162,11 @@ Et les initialiser dans `init()`
 - `uart_rx_task`
 - `uart_tx_task`
 - `bank_task`
+
+## Rx Task
+
+- lit les bytes sur `UART_NUM_0` un par un
+- quand 4 bytes correspondent à `HEADER`, on lit `sizeof(message_t)`
 
 ## Client
 
