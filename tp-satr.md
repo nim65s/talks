@@ -160,5 +160,11 @@ Et les initialiser dans `init()`
 
 ## Tasks
 
+- `uart_rx_task`
+- `uart_tx_task`
+- `bank_task`
 
 ## Client
+
+- `struct`
+- `serial` (`python -m pip install pyserial`)
