@@ -1,4 +1,4 @@
-image: nim65s/talks
+image: gitlab.laas.fr:4567/gsaurel/talks
 
 build:
   stage: build
