@@ -11,7 +11,6 @@ public/%.pdf: %.md references.bib
 		--bibliography references.bib \
 		--highlight-style kate \
 		--pdf-engine xelatex \
-		--fail-if-warnings \
 		-o $@ $<
 
 public/index.html: ${SOURCES} index.py

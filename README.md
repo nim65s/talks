@@ -1,5 +1,7 @@
 # Talks
 
+:warning: TODO: j’ai oublié 3 images sur mon laptop dans rust-rovers.md…
+
 ## Dependencies
 
 - [pandoc](https://pandoc.org/)
