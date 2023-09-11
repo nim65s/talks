@@ -21,4 +21,6 @@ deploy:
     - git config --global --add safe.directory /builds/gsaurel/talks
   script:
     - make deploy
-    - git push --mirror git@github.com:nim65s/talks
+    - git remote -v
+    - git branch -a
+    - git push git@github.com:nim65s/talks main
