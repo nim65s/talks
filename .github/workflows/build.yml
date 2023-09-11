@@ -31,10 +31,7 @@ jobs:
         run: |
           eval $(ssh-agent -s)
           echo "${{ secrets.SSH_PRIVATE_KEY }}" | ssh-add -
-          git remote -v
-          git branch -a
-          git show
-          git status
+          git pull git@gitlab.laas.fr:gsaurel/talks main
           git push git@gitlab.laas.fr:gsaurel/talks main
 
   deploy:
