@@ -19,9 +19,8 @@ deploy:
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | ssh-add -
     - git config --global --add safe.directory /builds/gsaurel/talks
-    - git fetch
     - git checkout main
-    - git pull origin main
+    - git reset --hard $CI_COMMIT_SHA
   script:
     - make deploy
     - git push git@github.com:nim65s/talks main
