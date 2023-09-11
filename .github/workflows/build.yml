@@ -34,6 +34,7 @@ jobs:
           git remote -v
           git branch -a
           git show
+          git status
           git push git@gitlab.laas.fr:gsaurel/talks main
 
   deploy:
