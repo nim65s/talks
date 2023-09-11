@@ -1,6 +1,9 @@
 name: CI/CD
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -30,3 +33,10 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+      - name: Mirror to gitlab
+        env:
+          GIT_SSH_COMMAND: ssh -o StrictHostKeyChecking=accept-new
+        run: |
+          eval $(ssh-agent -s)
+          echo "$SSH_PRIVATE_KEY" | ssh-add -
+          git push --mirror git@gitlab.laas.fr:gsaurel/talks
