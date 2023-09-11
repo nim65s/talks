@@ -12,9 +12,14 @@ deploy:
   stage: deploy
   only:
     refs:
-      - main
+      - main@gsaurel/talks
   before_script:
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | ssh-add -
+    - git remote -v | grep -q gh || git remote add gh git@github.com:nim65s/talks
+    - git branch | grep -q main || git checkout --track origin/main
+    - git checkout main
+    - git pull origin main
   script:
     - make deploy
+    - git push gh main
