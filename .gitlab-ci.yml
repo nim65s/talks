@@ -18,7 +18,7 @@ deploy:
   before_script:
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | ssh-add -
-    - git config --global --add safe.directory $CI_BUILDS_DIR
+    - git config --global --add safe.directory $CI_PROJECT_DIR
     - git checkout main
     - git reset --hard $CI_COMMIT_SHA
   script:
