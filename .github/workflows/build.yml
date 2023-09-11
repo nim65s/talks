@@ -31,7 +31,7 @@ jobs:
         run: |
           eval $(ssh-agent -s)
           echo "${{ secrets.SSH_PRIVATE_KEY }}" | ssh-add -
-          git push --mirror git@gitlab.laas.fr:gsaurel/talks
+          git push git@gitlab.laas.fr:gsaurel/talks main
 
   deploy:
     name: publish on github pages
