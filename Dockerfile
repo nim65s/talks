@@ -27,10 +27,3 @@ RUN cd /opt/texlive/texmf-local/tex/latex/ \
 RUN addgroup --gid 1046 idea \
  && adduser --ingroup idea --disabled-password --uid 5495 gsaurel
 USER gsaurel
-
-# Get ssh host key for deploy
-RUN mkdir -p ~/.ssh \
- && ssh-keyscan "memmos.laas.fr" > ~/.ssh/known_hosts \
- && ssh-keyscan "github.com" >> ~/.ssh/known_hosts \
- && chmod 700 ~/.ssh \
- && chmod 644 ~/.ssh/known_hosts

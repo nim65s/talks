@@ -13,14 +13,15 @@ deploy:
   only:
     refs:
       - main@gsaurel/talks
+  variables:
+    GIT_SSH_COMMAND: ssh -o UserKnownHostsFile=.known_hosts
   before_script:
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | ssh-add -
     - git config --global --add safe.directory /builds/gsaurel/talks
-    - git remote -v | grep -q gh || git remote add gh git@github.com:nim65s/talks
     - git branch | grep -q main || git checkout --track origin/main
     - git checkout main
     - git pull origin main
   script:
     - make deploy
-    - git push gh main
+    - git push git@github.com:nim65s/talks main
