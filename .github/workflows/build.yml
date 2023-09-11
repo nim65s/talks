@@ -25,13 +25,14 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Mirror to gitlab
         env:
           GIT_SSH_COMMAND: ssh -o UserKnownHostsFile=.known_hosts
         run: |
           eval $(ssh-agent -s)
           echo "${{ secrets.SSH_PRIVATE_KEY }}" | ssh-add -
-          git pull git@gitlab.laas.fr:gsaurel/talks main
           git push git@gitlab.laas.fr:gsaurel/talks main
 
   deploy:
