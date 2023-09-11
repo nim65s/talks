@@ -19,6 +19,20 @@ jobs:
         with:
           path: public/
 
+  mirror:
+    name: Mirror to gitlab
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Mirror to gitlab
+        env:
+          GIT_SSH_COMMAND: ssh -o UserKnownHostsFile=.known_hosts
+        run: |
+          eval $(ssh-agent -s)
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | ssh-add -
+          git push --mirror git@gitlab.laas.fr:gsaurel/talks
+
   deploy:
     name: publish on github pages
     runs-on: ubuntu-latest
@@ -33,10 +47,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-      - name: Mirror to gitlab
-        env:
-          GIT_SSH_COMMAND: ssh -o StrictHostKeyChecking=accept-new
-        run: |
-          eval $(ssh-agent -s)
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" | ssh-add -
-          git push --mirror git@gitlab.laas.fr:gsaurel/talks
