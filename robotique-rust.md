@@ -10,17 +10,16 @@ header-includes:
 - \titlegraphic{\includegraphics[height=1.5cm]{media/cdl23.pdf}}
 ---
 
+## Cette présentation
 
-## This presentation
-
-### Available at
+### Disponible à
 
 \centering
 
 [`https://homepages.laas.fr/gsaurel/talks/
 robotique-rust.pdf`](https://homepages.laas.fr/gsaurel/talks/robotique-rust.pdf)
 
-### Under License
+### Sous license
 
 \centering
 
@@ -30,7 +29,7 @@ robotique-rust.pdf`](https://homepages.laas.fr/gsaurel/talks/robotique-rust.pdf)
 
 <https://creativecommons.org/licenses/by-sa/4.0/>
 
-## This presentation (continued)
+## Cette présentation (suite)
 
 ### Source
 
@@ -39,19 +38,15 @@ robotique-rust.pdf`](https://homepages.laas.fr/gsaurel/talks/robotique-rust.pdf)
 [`https://gitlab.laas.fr/gsaurel/talks :
 robotique-rust.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/robotique-rust.md)
 
-### Discussions & Companion Project
+### Discussions & Projet accompagnant
 
 \centering
 
 \url{https://github.com/nim65s/RobotS}
 
-# Présentations
-
-## Moi
+## Présentation
 
 ![IR en robotique humanoïde](media/robots.jpg){width=80%}
-
-# Rovers
 
 ## Contexte
 
@@ -87,11 +82,15 @@ struct Robot {
 
 ```rust
 pub trait SetSpeed {
-    fn set_speed(&mut self, tgt: f64) -> Result<()>;
+    fn set_speed(&mut self, tgt: f64) -> Result;
 }
+```
 
+. . .
+
+```rust
 impl SetSpeed for Robot {
-    fn set_speed(&mut self, tgt: f64) -> Result<()>{
+    fn set_speed(&mut self, tgt: f64) -> Result {
         match self.mode {
             Mode::Idle => Err(Error::IsIdle),
             Mode::Move(pose, _) = {
@@ -107,13 +106,13 @@ impl SetSpeed for Robot {
 
 ```rust
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main() -> Result {
     let port = 1234;
     tokio::spawn(async move {
         serve(port).await;
     });
 
-    let mut client = client::connect(port).await?;
+    let mut client = Client::connect(port).await?;
     client.set("hello", "world").await?;
 
     let result = client.get("hello").await?;
@@ -153,13 +152,27 @@ async fn main() {
 
 Les sont implémentés avec les traits fournis par `embedded-hal`, et fonctionnent partout !
 
+. . .
+
+ref. <https://www.youtube.com/watch?v=vLYit_HHPaY>
+
 ## Frameworks
 
-- RTIC
-- Embassy
+- [RTIC](https://rtic.rs/)
+- [Embassy](https://embassy.dev/)
 
 # Web
 
 ## Leptos
 
-![Fast web apps in Rust](media/leptos.png){width=80%}
+![Fast full-stack web apps in Rust](media/leptos.png){width=80%}
+
+# Démo !
+
+## toy example
+
+\url{https://github.com/nim65s/RobotS}
+
+## Questions ?
+
+Merci de votre attention !
