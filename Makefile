@@ -1,10 +1,10 @@
-SOURCES = $(filter-out README.md, $(wildcard *.md))
-OUTPUTS = $(SOURCES:%.md=public/%.pdf)
+SOURCES = $(wildcard talks/*.md)
+OUTPUTS = $(SOURCES:talks/%.md=public/%.pdf)
 DEST = "/usr/local/homepages/gsaurel/talks"
 
 all: ${OUTPUTS} public/index.html
 
-public/%.pdf: %.md references.bib
+public/%.pdf: talks/%.md references.bib
 	pandoc -s \
 		-t beamer \
 		--citeproc \

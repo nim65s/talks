@@ -9,9 +9,7 @@ html = "<html><head><title>My talks</title></head><body><h1>My talks:</h1>"
 
 talks = {}
 
-for f in sorted(Path().glob("*.md")):
-    if f.stem == "README":
-        continue
+for f in sorted(Path('talks').glob("*.md")):
     head = f.read_text().split("---")[1]
     print(f.stem)
     meta = load(head, Loader=Loader)
