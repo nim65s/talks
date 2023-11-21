@@ -2,7 +2,7 @@ FROM pandoc/latex
 
 ENTRYPOINT []
 
-RUN apk --no-cache add make rsync openssh-client bash python3 git
+RUN apk --no-cache add make rsync openssh-client bash python3 git py3-yaml
 
 # Add Adobe open source fonts
 RUN mkdir -p /usr/share/fonts/tmp /usr/share/fonts/adobe-source \
