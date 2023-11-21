@@ -1,10 +1,13 @@
 ---
 title: FTTH tetaneutral.net
 subtitle: Capitole du libre 2022
-data: 2022-11-20
+date: 2022-11-20
 author: L. Guerby, M. Herrb, G. Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro
+talk-urls:
+- name: Capitole du Libre 2022
+  url: https://cfp.capitoledulibre.org/cdl-2022/talk/D7JDBY/
 ---
 
 

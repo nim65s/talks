@@ -2,10 +2,13 @@
 title: CMake Wheel
 subtitle: Gérez vos projects CMake et leurs dépendances avec pip
 theme: laas
-data: 2022-11-19
+date: 2022-11-20
 author: Guilhem Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro
+talk-urls:
+- name: Capitole du Libre 2022
+  url: https://cfp.capitoledulibre.org/cdl-2022/talk/XXQMMV/
 ---
 
 ## This presentation

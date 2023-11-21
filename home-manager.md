@@ -2,12 +2,15 @@
 title: home-manager
 subtitle: Capitole du Libre 2023
 theme: laas
-date: 2023-18-11
+date: 2023-11-18
 author: Guilhem Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro
 header-includes:
 - \titlegraphic{\includegraphics[height=1.5cm]{media/cdl23.pdf}}
+talk-urls:
+- name: Capitole du Libre 2023
+  url: https://cfp.capitoledulibre.org/cdl-2023/talk/ZTL3XU/
 ---
 
 ## Cette présentation

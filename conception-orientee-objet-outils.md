@@ -2,7 +2,7 @@
 title: Conception Orientée Objet, Outils
 subtitle: Université Toulouse Paul Sabatier - KEAR9RA1
 theme: laas
-data: 2022-09-07
+date: 2022-09-07
 author: Guilhem Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro

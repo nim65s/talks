@@ -2,7 +2,7 @@
 title: TP Systèmes et Architectures Temps Réel
 subtitle: FreeRTOS, esp-idf, esp32, Queues, UART
 theme: laas
-data: 2022-11-28
+date: 2022-11-28
 author: Guilhem Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro

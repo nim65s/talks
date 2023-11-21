@@ -2,7 +2,7 @@
 title: Introduction to Modern CMake
 subtitle: C++ dependency tutorial
 theme: laas
-data: 2022-06-02
+date: 2022-06-02
 author: Guilhem Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro

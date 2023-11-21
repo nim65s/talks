@@ -2,7 +2,7 @@
 title: Tooling
 subtitle: for Python & C++
 theme: laas
-data: 2022-06-01
+date: 2022-06-01
 author: Guilhem Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro

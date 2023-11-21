@@ -6,6 +6,9 @@ date: 2023-05-15
 author: Guilhem Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro
+talk-urls:
+- name: "2RM: École Technologique 2023"
+  url: https://wiki.2rm.cnrs.fr/EcoleTechno2023
 ---
 
 ## This presentation

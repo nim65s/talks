@@ -1,6 +1,6 @@
 ---
-title: "Git: Forges"
-subtitle: Issues, Branches, Forks, Requests, CI, and Workflows
+title: Conception Orientée Objet, Forges
+subtitle: Université Toulouse Paul Sabatier - KEAR9RA1
 theme: laas
 author: Guilhem Saurel
 date: 2022-01-25
@@ -15,7 +15,7 @@ monofont: Source Code Pro
 \centering
 
 [`https://homepages.laas.fr/gsaurel/talks/
-git-forges.pdf`](https://homepages.laas.fr/gsaurel/talks/git-forges.pdf)
+conception-orientee-objet-forges.pdf`](https://homepages.laas.fr/gsaurel/talks/conception-orientee-objet-forges.pdf)
 
 ### Under License
 
@@ -34,18 +34,13 @@ git-forges.pdf`](https://homepages.laas.fr/gsaurel/talks/git-forges.pdf)
 \centering
 
 [`https://gitlab.laas.fr/gsaurel/talks :
-git-forges.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/git-forges.md)
+conception-orientee-objet-forges.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/conception-orientee-objet-forges.md)
 
 ### Discussions
 
 \centering
 
-<!-- \href doesn't like #, so let's directly use \url -->
-\url{https://im.laas.fr/\#/room/\#git-forges:laas.fr}
-
-## Outline
-
-\tableofcontents
+\url{https://matrix.to/\#/\#conception-orientee-objet:laas.fr}
 
 # Introduction
 
@@ -64,8 +59,7 @@ git-forges.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/git-forges.md)
 
 
 - `https:// gitlab.laas.fr / gsaurel / talks`
-- `https:// github.com / gepetto / example-adder`
-
+- `https:// github.com / nim65s / talks`
 
 ## Issues
 
@@ -115,30 +109,38 @@ git-forges.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/git-forges.md)
 
 ```
 git clone --recursive \
-        git@gitlab.laas.fr:gsaurel/example-adder.git
-cd example-adder
+        git@gitlab.laas.fr:gsaurel/talks.git
+cd talks
 git remote add gepetto \
-        git@gitlab.laas.fr:gepetto/example-adder.git
+        git@gitlab.laas.fr:gepetto/talks.git
 ```
 
 . . .
 
 ```
-git pull gepetto master
-git push origin master
+git pull gepetto main
+git push origin main
+```
+
+## Git shortcut
+
+```bash
+git config --global \
+    url."git@github.com:".insteadOf \
+    "https://github.com/"
 ```
 
 ## SSH shortcut
 
 ```ini
 # ~/.ssh/config
-Host gl
-    HostName gitlab.laas.fr
+Host gh
+    HostName github.com
     User git
 ```
 
 ```
-git clone --recursive gl:gsaurel/example-adder
+git clone --recursive gh:nim65s/talks
 ```
 
 # Requests
@@ -147,25 +149,9 @@ git clone --recursive gl:gsaurel/example-adder
 
 ![Merge Request](media/mr.png)
 
-## Gitlab from command line
-
-```
-git push -o merge_request.create \
-         -o merge_request.target=devel \
-         origin topic/something
-```
-
 ## Github
 
 ![Pull Request](media/pr.png)
-
-## Github from command line
-
-Required: https://cli.github.com/
-
-```
-gh pr create
-```
 
 # CI
 
@@ -173,7 +159,7 @@ gh pr create
 
 ```yml
 # .gitlab-ci.yml
-image: gitlab.laas.fr:4567/gsaurel/talks
+image: gsaurel/talks
 
 build:
   script:
@@ -182,20 +168,6 @@ build:
 test:
   script:
     - make test
-```
-
-## Gitlab shortcut
-
-```
-git config --global alias.mwps "push \
-        -o merge_request.create \
-        -o merge_request.target=devel \
-        -o merge_request.merge_when_pipeline_succeeds \
-        -o merge_request.remove_source_branch"
-```
-
-```
-git mwps origin topic/something
 ```
 
 ## Github
@@ -207,10 +179,11 @@ on: [push,pull_request]
 
 jobs:
   build:
-    name: Transpile markdown sources into PDF
-    runs-on: nim65s/talks
+    name: markdown → PDF
+    runs-on: ubuntu-latest
+    container: nim65s/talks
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: make
 ```
 
@@ -219,15 +192,3 @@ jobs:
 ## Example
 
 ![nvie](media/nvie.png)
-
-# End notes
-
-## References
-
-https://learngitbranching.js.org/
-https://nvie.com/posts/a-successful-git-branching-model/
-https://docs.github.com/en/get-started/quickstart/github-flow
-
-## Questions ?
-
-Thanks for your time :)
