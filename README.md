@@ -6,6 +6,7 @@
 - Adobe [Source Serif 4](https://github.com/adobe-fonts/source-serif) and
   [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) fonts
 - My [LAAS beamer theme](https://gitlab.laas.fr/gsaurel/laas-beamer-theme)
+- [pyyaml](https://pyyaml.org/) to generate an `index.html`
 
 ## Build
 
