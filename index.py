@@ -5,11 +5,12 @@ from pathlib import Path
 
 from yaml import Loader, load
 
-html = "<html><head><title>My talks</title></head><body><h1>My talks:</h1>"
+html = '<html><head><meta charset="utf-8"><title>My talks</title></head>'
+html += "<body><h1>My talks:</h1>"
 
 talks = {}
 
-for f in sorted(Path('talks').glob("*.md")):
+for f in sorted(Path("talks").glob("*.md")):
     head = f.read_text().split("---")[1]
     print(f.stem)
     meta = load(head, Loader=Loader)
