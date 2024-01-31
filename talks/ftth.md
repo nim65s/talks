@@ -6,8 +6,10 @@ author: L. Guerby, M. Herrb, G. Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro
 talk-urls:
-- name: Capitole du Libre 2022
+- name: Capitole du Libre 2022 (programme)
   url: https://cfp.capitoledulibre.org/cdl-2022/talk/D7JDBY/
+- name: Capitole du Libre 2022 (video)
+  url: https://www.youtube.com/watch?v=FtZd1qKd1GQ
 ---
 
 
