@@ -9,8 +9,10 @@ monofont: Source Code Pro
 header-includes:
 - \titlegraphic{\includegraphics[height=1.5cm]{media/cdl23.pdf}}
 talk-urls:
-- name: Capitole du Libre 2023
+- name: Capitole du Libre 2023 (programme)
   url: https://cfp.capitoledulibre.org/cdl-2023/talk/ZTL3XU/
+- name: Capitole du Libre 2023 (video)
+  url: https://www.youtube.com/watch?v=CQ8vA90T0Wc
 ---
 
 ## Cette présentation
