@@ -481,7 +481,7 @@ gmake: *** [Makefile:71 : test] Erreur 8
 - Build systems generate the compilation commands you need, and run those when necessary.
 - They can be extended to take care of many other build steps, like:
     - run unit tests
-    - instal the package
+    - install the package
     - build the documentation
 
 . . .
