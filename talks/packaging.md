@@ -6,6 +6,9 @@ date: 2024-04-26
 author: Guilhem Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro
+talk-urls:
+- name: Recording
+  url: https://peertube.laas.fr/w/3juBBk8We55jTmEPFTBSBY
 ---
 
 ## This presentation
