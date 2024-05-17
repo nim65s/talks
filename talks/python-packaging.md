@@ -2,10 +2,13 @@
 title: Python Packaging
 subtitle: for users and devs
 theme: laas
-date: 2024-05-15
+date: 2024-05-17
 author: Guilhem Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro
+talk-urls:
+- name: Recording
+  url: https://peertube.laas.fr/w/1X6d6MNwJEj6fXt3jjMxwA
 ---
 
 ## This presentation
@@ -48,7 +51,7 @@ python-packaging.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/python-pa
 
 1. Use python packages from other people
 2. Provide your own python packages to other people
-3. Get
+3. Get an overview of different Package Managers for that
 
 ## OS Scope
 
