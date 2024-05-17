@@ -529,6 +529,8 @@ Use those for development of your projects: they have the best support for it.
 ### general package managers
 
 - robotpkg
+- catkin
+- colcon
 - conda
 - guix
 - nix
@@ -538,6 +540,16 @@ Use those for development of your projects: they have the best support for it.
 Use those if you know what you do, and come to the next formations to know more !
 
 # Questions ?
+
+## Example CMake projects
+
+### With Gepetto specific tools
+
+https://github.com/gepetto/example-adder
+
+### Without Gepetto specific tools
+
+https://github.com/cmake-wheel/cmeel-example
 
 ## links reminder
 
