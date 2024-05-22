@@ -18,13 +18,36 @@
         "type": "github"
       }
     },
+    "laas-beamer-theme": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1716363644,
+        "narHash": "sha256-c1sXeTn5mxmEg35Abfedesln63sgsxeTpbr+P+aj3bM=",
+        "ref": "refs/heads/main",
+        "rev": "ea36168ab797c13691026b6230f7fe573f5b9399",
+        "revCount": 11,
+        "type": "git",
+        "url": "https://gitlab.laas.fr/gsaurel/laas-beamer-theme"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://gitlab.laas.fr/gsaurel/laas-beamer-theme"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1714076141,
-        "narHash": "sha256-Drmja/f5MRHZCskS6mvzFqxEaZMeciScCTFxWVLqWEY=",
+        "lastModified": 1713714899,
+        "narHash": "sha256-+z/XjO3QJs5rLE5UOf015gdVauVRQd2vZtsFkaXBq2Y=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7bb2ccd8cdc44c91edba16c48d2c8f331fb3d856",
+        "rev": "6143fc5eeb9c4f00163267708e26191d1e918932",
         "type": "github"
       },
       "original": {
@@ -37,6 +60,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "laas-beamer-theme": "laas-beamer-theme",
         "nixpkgs": "nixpkgs"
       }
     },

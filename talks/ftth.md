@@ -33,7 +33,7 @@ Hébergeur de chatons
 
 ##
 
-![](https://herrb.eu/alex_20130316-crop.jpg)
+![](media/alex_20130316-crop.jpg)
 
 ## C'est quoi Tetaneutral.net ? (suite)
 
@@ -77,7 +77,7 @@ ARCEP, gouvernement, répartition FTTH en France: ZTD, AMII, AMEL, RIP
 
 ## Carte
 
-![](https://fibre.guide/wp-content/uploads/2017/08/carte-zones-amii.png)
+![](media/carte-zones-amii.png)
 
 ## Chez nous
 
@@ -118,7 +118,7 @@ Portes Locale Vs Nationnales
 
 ##
 
-![](https://pano.tetaneutral.net/data/fibre31/cdl-fibre31.jpg)
+![](media/cdl-fibre31.jpg)
 
 
 ## Couverture géographique

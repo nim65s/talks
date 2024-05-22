@@ -15,7 +15,7 @@ public/%.pdf: talks/%.md references.bib
 		-o $@ $<
 
 public/index.html: ${SOURCES} index.py
-	./index.py
+	python index.py
 
 check: all
 
@@ -25,3 +25,6 @@ deploy: check
 
 clean:
 	rm -f ${OUTPUTS} public/index.html
+
+watch:
+	watchexec -e md -c reset make
