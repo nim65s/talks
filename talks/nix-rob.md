@@ -185,11 +185,55 @@ libc.so.6 => /nix/store/35p…-glibc-2.39-5/lib/libc.so.6 (0x00007fab655fe000)
     - dev shells
     - NixOS configurations
 
+## Flake example: `gsaurel/laas-beamer-theme`
+
+```nix
+laas-beamer-theme = pkgs.stdenvNoCC.mkDerivation {
+  name = "laas-beamer-theme";
+  src = ./.;
+  outputs = [ "tex" ];
+  installPhase = ''
+    path="$tex/tex/latex/laas-beamer-theme"
+    mkdir -p "$path"
+    cp *.{png,sty} "$path/"
+  '';
+  meta = {
+    description = "My LAAS beamer theme";
+    homepage = "https://gitlab.laas.fr/gsaurel/laas-beamer-theme";
+    license = pkgs.lib.licenses.cc-by-sa-40;
+    maintainers = [ pkgs.lib.maintainers.nim65s ];
+  };
+};
+```
+
+## Flake example: `gsaurel/talks`
+
+```nix
+gsaurel-talks = stdenvNoCC.mkDerivation {
+  name = "gsaurel-talks";
+  src = ./.;
+  nativeBuildInputs = [ source-code-pro
+    source-sans source-serif ];
+  buildInputs = [
+    pandoc
+    (python3.withPackages (p: [ p.pyyaml ]))
+    (texlive.combined.scheme-full.withPackages(
+        _: [ laas-beamer-theme ]))
+  ];
+  installPhase = ''
+    mkdir $out
+    cp public/*.{pdf,html} $out
+  '';
+};
+  ```
+
 # NixOS
 
 ## Wishlist
 
-Ref. ROS2 deployment with docker and balenaos. ROSConFr, @xouillet23:
+Ref. ROS2 deployment with Docker and BalenaOS. ROSConFr, @xouillet23:
+
+ 
 
 
 > Deploying on Robot/embedded device whishlist:
@@ -198,9 +242,32 @@ Ref. ROS2 deployment with docker and balenaos. ROSConFr, @xouillet23:
 > - Same code/binary on all devices
 > - No user interaction installation
 
+ 
+
+. . .
+
+But **ROS => ubuntu**
+
 ## Déclaration
 
-- configuration.nix ou flake.nix
+```nix
+{
+  imports = [ ./hardware-configuration.nix ];
+  boot.loader.systemd-boot.enable = true;
+  networking.hostName = "loon";
+  networking.networkmanager.enable = true;
+  time.timeZone = "Europe/Paris";
+  console.keyMap = "fr-bepo";
+  users.users.gsaurel = {
+    shell = pkgs.fish;
+    isNormalUser = true;
+    description = "Guilhem Saurel";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+  environment.systemPackages = [ pkgs.git pkgs.vim ];
+  services.openssh.enable = true;
+}
+```
 
 ## Générations
 
@@ -222,7 +289,27 @@ Mise à jour / rollbacks atomiques
 
 ## Home-Manager
 
-"dotfiles" déclaratifs
+```nix
+home = {
+  packages = [ … ];
+  home.file = {
+    ".config/dfc/dfcrc".source =
+        ./.config/dfc/dfcrc;
+  };
+  sessionVariables.PAGER = "vim -c PAGER -";
+  programs.atuin = {
+    enable = true;
+    flags = [ "--disable-up-arrow" ];
+  };
+  programs.git = {
+      enable = true;
+      delta.enable = true;
+      lfs.enable = true;
+      userName = "Guilhem Saurel";
+      userEmail = "guilhem.saurel@laas.fr";
+  };
+}
+```
 
 ## disko
 
