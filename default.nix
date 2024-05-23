@@ -1,5 +1,4 @@
 {
-  breakpointHook,
   laas-beamer-theme,
   lib,
   nix-gitignore,
@@ -19,7 +18,6 @@ stdenvNoCC.mkDerivation {
   makeFlags = "-j";
 
   nativeBuildInputs = [
-    breakpointHook
     source-code-pro
     source-sans
     source-serif

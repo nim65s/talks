@@ -166,6 +166,14 @@ libc.so.6 => /nix/store/35p…-glibc-2.39-5/lib/libc.so.6 (0x00007fab655fe000)
 /nix/store/35p…-glibc-2.39-5/lib/ld-linux-x86-64.so.2 (0x00007fab657f3000)
 ```
 
+## Nixpkgs
+
+- 100k paquets
+- 7k contributeurs
+- 3k mainteneurs
+- 630k commits
+- 20 ans
+
 ## Flakes
 
 - dépôt git + flake.nix
@@ -190,9 +198,13 @@ Ref. ROS2 deployment with docker and balenaos. ROSConFr, @xouillet23:
 > - Same code/binary on all devices
 > - No user interaction installation
 
+## Déclaration
+
+- configuration.nix ou flake.nix
+
 ## Générations
 
-Mise à jour / rollbacks
+Mise à jour / rollbacks atomiques
 
 # Robotique
 
@@ -202,7 +214,7 @@ Mise à jour / rollbacks
 
 ## ROS
 
-![](media/nix-roscon.png)
+[![](media/nix-roscon.png)](http://download.ros.org/downloads/roscon/2022/Better%20ROS%20Builds%20with%20Nix.pdf)
 
 <https://github.com/lopsided98/nix-ros-overlay>
 
