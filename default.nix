@@ -26,7 +26,7 @@ stdenvNoCC.mkDerivation {
   buildInputs = [
     pandoc
     (python3.withPackages (p: [ p.pyyaml ]))
-    (texlive.combined.scheme-full.withPackages(_: [ laas-beamer-theme ]))
+    (texlive.combined.scheme-full.withPackages (_: [ laas-beamer-theme ]))
   ];
 
   preBuild = ''

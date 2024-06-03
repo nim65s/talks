@@ -12,18 +12,28 @@
   };
 
   outputs =
-    { laas-beamer-theme, nixpkgs, flake-utils, ... }:
+    {
+      laas-beamer-theme,
+      nixpkgs,
+      flake-utils,
+      ...
+    }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        talks = pkgs.callPackage ./default.nix { laas-beamer-theme = laas-beamer-theme.packages.${system}.default; };
+        talks = pkgs.callPackage ./default.nix {
+          laas-beamer-theme = laas-beamer-theme.packages.${system}.default;
+        };
       in
       {
         packages.default = talks;
         devShells.default = pkgs.mkShell {
           inputsFrom = [ talks ];
-          packages = [ pkgs.watchexec ];
+          packages = [
+            pkgs.pdfpc
+            pkgs.watchexec
+          ];
         };
       }
     );
