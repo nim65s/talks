@@ -372,11 +372,92 @@ ref. <https://www.youtube.com/watch?v=vLYit_HHPaY>
 
 ![Fast full-stack web apps in Rust](media/leptos.png){width=80%}
 
+# Tooling
+
+## Clippy
+
+```sh
+$ rustup component add clippy
+$ cargo clippy
+$ cargo clippy --fix
+```
+
+## espflash
+
+```sh
+$ cargo install probe-rs-tools
+$ cargo embed
+```
+
+## leptos
+
+```sh
+$ cargo install cargo-leptos
+$ cargo leptos watch
+```
+
 # Démo !
 
 ## toy example
 
 \url{https://github.com/nim65s/RobotS}
+
+# Applications
+
+## Shell utils
+
+- grep → [ripgrep](https://github.com/BurntSushi/ripgrep)
+- find → [fd](https://github.com/sharkdp/fd)
+- ls → [LSDeluxe](https://github.com/lsd-rs/lsd) / [eza](https://github.com/eza-community/eza)
+- du → [dust](https://github.com/bootandy/dust)
+- cat → [bat](https://github.com/sharkdp/bat)
+- ctrl-r → [zoxide](https://github.com/ajeetdsouza/zoxide)
+- terminal → [alacritty](https://github.com/alacritty/alacritty)
+- prompt → [starship](https://starship.rs/)
+- history → [atuin](https://github.com/atuinsh/atuin)
+- make → [just](https://github.com/casey/just)
+- watch → [watchexec](https://github.com/watchexec/watchexec) / [bacon](https://github.com/Canop/bacon)
+- screen / tmux → [zellij](https://github.com/zellij-org/zellij)
+- diff → [delta](https://github.com/dandavison/delta)
+- bash → [nushell](https://github.com/nushell/nushell)
+
+## Tools for other langages
+
+### Python
+
+- [ruff](https://github.com/astral-sh/ruff)
+- [uv](https://github.com/astral-sh/uv)
+
+### JavaScript
+
+- [deno](https://github.com/denoland/deno)
+- [parcel](https://parceljs.org/)
+
+
+# Alternatives
+
+## Similar
+
+- [Go](https://go.dev/)
+- [Swift](https://www.swift.org/)
+
+## Even more modern
+
+- [Zig](https://ziglang.org/)
+
+# Limitations
+
+## Learning curve
+
+Not that easy
+
+## No shared objects
+
+Recompile all the things
+
+## Interractions with outside world
+
+You might need nix ;)
 
 ## Questions ?
 
