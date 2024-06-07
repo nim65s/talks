@@ -7,8 +7,8 @@ author: Guilhem Saurel
 mainfont: Source Serif 4
 monofont: Source Code Pro
 talk-urls:
-- name: Formations PI2
-  url: https://pi2.laas.fr/fr/formation/
+- name: Enregistrement
+  url: https://peertube.laas.fr/w/1oVRC3dqz72m62DCziqKBf
 ---
 
 ## This presentation
