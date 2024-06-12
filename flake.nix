@@ -11,14 +11,20 @@
       url = "git+https://gitlab.laas.fr/gsaurel/laas-beamer-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs@{ laas-beamer-theme, flake-parts, ... }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ inputs.treefmt-nix.flakeModule ];
       systems = [ "x86_64-linux" ];
       perSystem =
         {
+          config,
           pkgs,
           self',
           system,
@@ -28,15 +34,27 @@
           checks = {
             packages = self'.packages.default;
           };
-          packages.default = pkgs.callPackage ./default.nix {
-            laas-beamer-theme = laas-beamer-theme.packages.${system}.default;
-          };
           devShells.default = pkgs.mkShell {
+            nativeBuildInputs = [ config.treefmt.build.wrapper ];
             inputsFrom = [ self'.packages.default ];
             packages = [
               pkgs.pdfpc
               pkgs.watchexec
             ];
+          };
+          packages.default = pkgs.callPackage ./default.nix {
+            laas-beamer-theme = inputs.laas-beamer-theme.packages.${system}.default;
+          };
+          treefmt = {
+            projectRootFile = "flake.nix";
+            programs = {
+              deadnix.enable = true;
+              nixfmt-rfc-style.enable = true;
+              ruff = {
+                check = true;
+                format = true;
+              };
+            };
           };
         };
     };
