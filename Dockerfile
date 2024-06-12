@@ -12,6 +12,7 @@ RUN mkdir -p /usr/share/fonts/tmp /usr/share/fonts/adobe-source \
  && wget "https://github.com/adobe-fonts/source-sans/releases/download/3.052R/OTF-source-sans-3.052R.zip" \
  && unzip source-serif-4.004.zip \
  && unzip OTF-source-code-pro-2.038R-ro-1.058R-it.zip \
+ && unzip OTF-source-sans-3.052R.zip \
  && find . -iname \*.otf -print0 | xargs -0 -I {} mv {} ../adobe-source \
  && cd .. \
  && rm -rf tmp \
