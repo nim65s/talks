@@ -4,6 +4,7 @@ subtitle: Capitole du Libre 2023
 theme: laas
 date: 2023-11-18
 author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 header-includes:

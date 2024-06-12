@@ -4,6 +4,7 @@ subtitle: FreeRTOS, esp-idf, esp32, Queues, UART
 theme: laas
 date: 2022-11-28
 author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 ---

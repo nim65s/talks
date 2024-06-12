@@ -2,8 +2,9 @@
 title: Managing Python Packages
 subtitle: Concepts, Tooling, History, and Recommandations
 theme: laas
-author: Guilhem Saurel
 date: 2019-12-09
+author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 talk-urls:

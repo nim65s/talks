@@ -4,6 +4,7 @@ subtitle: Gérez vos projects CMake et leurs dépendances avec pip
 theme: laas
 date: 2022-11-20
 author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 talk-urls:

@@ -4,6 +4,7 @@ subtitle: 2RM, École Technologique 2023
 theme: laas
 date: 2023-05-15
 author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 talk-urls:

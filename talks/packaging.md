@@ -4,6 +4,7 @@ subtitle: Avec CMake
 theme: laas
 date: 2024-04-26
 author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 talk-urls:

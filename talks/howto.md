@@ -2,8 +2,9 @@
 title: Quick MarkDown Reference
 subtitle: Beamer presentation with Pandoc
 theme: laas
-author: Guilhem Saurel
 date: 2021-10-08
+author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 ---

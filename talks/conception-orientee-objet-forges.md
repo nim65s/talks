@@ -2,8 +2,9 @@
 title: Conception Orientée Objet, Forges
 subtitle: Université Toulouse Paul Sabatier - KEAR9RA1
 theme: laas
-author: Guilhem Saurel
 date: 2022-01-25
+author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 ---

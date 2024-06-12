@@ -2,8 +2,9 @@
 title: Containers
 subtitle: what, how, which and when
 theme: laas
-author: Guilhem Saurel
 date: 2022-02-10
+author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 ---

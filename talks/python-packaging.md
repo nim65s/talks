@@ -4,6 +4,7 @@ subtitle: for users and devs
 theme: laas
 date: 2024-05-17
 author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 talk-urls:

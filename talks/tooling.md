@@ -4,6 +4,7 @@ subtitle: for Python & C++
 theme: laas
 date: 2022-06-01
 author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 ---

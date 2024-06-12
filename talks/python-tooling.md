@@ -3,6 +3,7 @@ title: Python Tooling
 theme: laas
 date: 2022-05-16
 author: Guilhem Saurel
+sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 ---
