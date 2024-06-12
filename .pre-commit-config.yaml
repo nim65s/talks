@@ -1,3 +1,6 @@
+ci:
+  skip:
+    - treefmt
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v4.6.0
@@ -17,3 +20,10 @@ repos:
   - id: fix-byte-order-marker
   - id: mixed-line-ending
   - id: trailing-whitespace
+- repo: local
+  hooks:
+  - id: treefmt
+    name: treefmt
+    entry: treefmt
+    language: system
+    always_run: true
