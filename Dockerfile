@@ -9,6 +9,7 @@ RUN mkdir -p /usr/share/fonts/tmp /usr/share/fonts/adobe-source \
  && cd /usr/share/fonts/tmp \
  && wget "https://github.com/adobe-fonts/source-serif/releases/download/4.004R/source-serif-4.004.zip" \
  && wget "https://github.com/adobe-fonts/source-code-pro/releases/download/2.038R-ro%2F1.058R-it%2F1.018R-VAR/OTF-source-code-pro-2.038R-ro-1.058R-it.zip" \
+ && wget "https://github.com/adobe-fonts/source-sans/releases/download/3.052R/OTF-source-sans-3.052R.zip" \
  && unzip source-serif-4.004.zip \
  && unzip OTF-source-code-pro-2.038R-ro-1.058R-it.zip \
  && find . -iname \*.otf -print0 | xargs -0 -I {} mv {} ../adobe-source \
