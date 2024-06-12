@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  nix:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,19 +15,9 @@ jobs:
       - uses: DeterminateSystems/flake-checker-action@main
       - run: nix flake check
       - run: nix build
-
-  build:
-    name: markdown → PDF
-    runs-on: ubuntu-latest
-    container:
-      image: nim65s/talks
-      options: -u root
-    steps:
-      - uses: actions/checkout@v4
-      - run: make -j
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: public/
+          path: result/
 
   mirror:
     name: Mirror to gitlab
