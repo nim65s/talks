@@ -1,7 +1,6 @@
 {
   laas-beamer-theme,
   lib,
-  nix-gitignore,
   pandoc,
   python3,
   source-code-pro,
@@ -13,7 +12,16 @@
 stdenvNoCC.mkDerivation {
   name = "talks";
 
-  src = nix-gitignore.gitignoreSource [ ./.nixignore ] ./.;
+  src = lib.fileset.toSource {
+    root = ./.;
+    fileset = lib.fileset.unions [
+      (lib.fileset.fileFilter (file: file.hasExt "md") ./talks)
+      ./index.py
+      ./Makefile
+      ./media
+      ./references.bib
+    ];
+  };
 
   makeFlags = "-j";
 

@@ -15,6 +15,7 @@ public/%.pdf: talks/%.md references.bib
 		-o $@ $<
 
 public/index.html: ${SOURCES} index.py
+	mkdir -p public
 	python3 index.py
 
 check: all
