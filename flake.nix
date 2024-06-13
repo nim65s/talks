@@ -31,7 +31,6 @@
           ...
         }:
         {
-          checks.default = self'.packages.default;
           devShells.default = pkgs.mkShell {
             nativeBuildInputs = [ config.treefmt.build.wrapper ];
             inputsFrom = [ self'.packages.default ];
