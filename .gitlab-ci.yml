@@ -1,12 +1,13 @@
-image: gitlab.laas.fr:4567/gsaurel/talks
+image: ghcr.io/nixos/nix
 
 build:
   stage: build
   script:
-    - make all
+    - nix --extra-experimental-features "nix-command flakes" flake check
+    - nix --extra-experimental-features "nix-command flakes" build
   artifacts:
     paths:
-      - public
+      - result
 
 deploy:
   stage: deploy
@@ -22,6 +23,7 @@ deploy:
     - git checkout main
     - git reset --hard $CI_COMMIT_SHA
   script:
+    - cp result/* public/
     - touch public/*.pdf
     - make -j deploy
     - git push git@github.com:nim65s/talks main
