@@ -5,9 +5,10 @@ build:
   script:
     - nix --extra-experimental-features "nix-command flakes" flake check
     - nix --extra-experimental-features "nix-command flakes" build
+    - cp result/* public/
   artifacts:
     paths:
-      - result
+      - public
 
 deploy:
   stage: deploy
@@ -23,7 +24,6 @@ deploy:
     - git checkout main
     - git reset --hard $CI_COMMIT_SHA
   script:
-    - cp result/* public/
     - touch public/*.pdf
     - make -j deploy
     - git push git@github.com:nim65s/talks main
