@@ -20,7 +20,7 @@ public/index.html: ${SOURCES} index.py
 
 check: all
 
-deploy: check
+deploy:
 	chmod a+r,g+w ${OUTPUTS}
 	rsync -avzP --delete -e "ssh -o UserKnownHostsFile=.known_hosts" public/ gsaurel-deploy@memmos.laas.fr:${DEST}
 
