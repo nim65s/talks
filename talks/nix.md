@@ -30,6 +30,10 @@ nix.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/nix.md)
 
 <https://creativecommons.org/licenses/by-sa/4.0/>
 
+### Discussions
+
+[#nix:laas.fr](https://matrix.to/#/#nix:laas.fr)
+
 # Introduction
 
 ## Résumé des épisodes précédents
@@ -54,10 +58,6 @@ nix.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/nix.md)
     - dépendances
     - distributions
 
-## Repology
-
-![](media/repology-24-06.png)
-
 # Cahier des charges
 
 ## Installer des paquets
@@ -69,7 +69,7 @@ nix.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/nix.md)
 
 - cache
 
-## Reproducibilité des paquets
+## Reproducibilité
 
 Mêmes sources + recette => mêmes résultats
 
@@ -82,6 +82,21 @@ Mêmes sources + recette => mêmes résultats
 - Options automatiques
 
 => Isolation
+
+. . .
+
+### Gains
+
+- Si ça a été compilé une fois, pas besoin de recompiler
+- Si ça marche sur un ordinateur, ça marche sur un autre
+
+### Limites
+
+- dépendances: nombre de paquets déjà disponibles
+
+## Repology
+
+![](media/repology-24-06.png)
 
 ## L’intégration continue & l’outillage
 
@@ -97,11 +112,13 @@ Ref. The purely functional software deployment model. PhD, @edolstra06
 
 ### Impératif
 
-> je veux lancer la commande "echo 'enable = true' >> /etc/toto.conf'
+> lancer la commande:
+>
+> `echo 'enable = true' >> /etc/toto.conf`
 
 ### Déclaratif
 
-> je veux que /etc/toto.conf soit "enable = true"
+> Définir que `/etc/toto.conf` soit `enable = true`
 
 ## Une solution fonctionnelle & lazy
 
@@ -109,9 +126,9 @@ Simplement modifier n’importe quel paramètre
 
 ## Une solution composable
 
-- OS
-- user
 - projet
+- user
+- OS
 
 ## Une solution immutable
 
@@ -143,14 +160,14 @@ stdenv.mkDerivation rec {
 nix-repl> pkgs.hello
 «derivation /nix/store/img71klf2wzx867q5ldhf0zqc3wl0mxk-hello-2.12.1.drv»
 
-nix-repl> "${pkgs.hello}"
+nix-repl> pkgs.hello.outPath
 "/nix/store/bw9z0jxp5qcm7jfp4vr6ci9qynjyaaip-hello-2.12.1"
 ```
 
 ## Paquets
 
 ```bash
-$ tree  /nix/store/bw9z0jxp…-hello-2.12.1
+$ tree /nix/store/bw9z0jxp…-hello-2.12.1
 bw9z0jxp…-hello-2.12.1/
 ├── bin/
 │   └── hello*
@@ -191,6 +208,7 @@ libc.so.6 => /nix/store/35p…-glibc-2.39-5/lib/libc.so.6 (0x00007fab655fe000)
     - tests
     - dev shells
     - NixOS configurations
+    - Home-Manager configurations
 
 ## Flake example: `package.nix`
 
@@ -216,7 +234,7 @@ hello.overrideAttrs (_: {
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      hello-laas = pkgs.callPackage ./package.nix { };
+      hello-laas = pkgs.callPackage ./package.nix {};
     in
     {
       packages.${system}.default = hello-laas;
@@ -295,9 +313,13 @@ $ echo "use flake" >> .envrc
 $ direnv allow
 ```
 
+<https://github.com/nix-community/nix-direnv>
+
 ## cachix
 
 Cache binaire
+
+<https://www.cachix.org/>
 
 ## disko
 
@@ -323,17 +345,25 @@ disko.devices.disk.my-disk = {
 
 Installation automatique
 
+<https://github.com/nix-community/nixos-anywhere>
+
 ## sops-nix
 
 Gestion des secrets par utilisateur et par machine
+
+<https://github.com/Mic92/sops-nix>
 
 ## buildbot-nix
 
 Framework CI/CD
 
+<https://github.com/Mic92/sops-nix>
+
 ## treefmt-nix
 
 Formatte tous les langages
+
+<https://github.com/numtide/treefmt-nix>
 
 ## Github actions:
 
@@ -349,6 +379,8 @@ steps:
 ## NUR
 
 Fédération de dépôts personnels
+
+<https://nur.nix-community.org/>
 
 ## Environnements de développement
 
@@ -370,14 +402,60 @@ Fédération de dépôts personnels
 
 Collection de modules pour différents devices
 
+<https://github.com/NixOS/nixos-hardware/>
+
+## NixOS Configuration
+
+- <https://mynixos.com/>
+- <https://github.com/snowfallorg/nixos-conf-editor>
+- <https://github.com/snowfallorg/nix-software-center>
+
 ## Autres utilisations
 
 - nixos
+- VMs
 - containers
 - isos
 - macos
 - freebsd
 - android
+- projets par langage
+
+# Communauté: Communication
+
+## Github
+
+- <https://github.com/NixOS/>
+- <https://github.com/nix-community/>
+
+## Discourse
+
+<https://discourse.nixos.org/>
+
+## Matrix
+
+[#space:nixos.org](https://matrix.to/#/#space:nixos.org)
+
+## Documentation
+
+### Officielle
+
+- <https://nix.dev/>
+- <https://wiki.nixos.org/>
+- <https://nixos.org/learn/>: Nix{,pkgs,OS} manual
+- <https://nixos.org/guides/nix-pills/>
+
+### Communauté
+
+- <https://zero-to-nix.com/>
+- <https://nixos-and-flakes.thiscute.world/>
+
+## Recherche
+
+- <https://search.nixos.org/>
+- <https://home-manager-options.extranix.com/>
+- <https://noogle.dev/>
+- <https://code.tvl.fyi/about/nix/nix-1p>
 
 # Communauté: entreprises
 
@@ -420,7 +498,6 @@ Un alternative à l’écosystème Nix
 
 <https://aux.computer/en/>
 
-
 # Communauté: humains
 
 ## PFH
@@ -446,7 +523,23 @@ Toute la chaîne doit être connue
 
 Explosion de la taille de la communauté
 
-=> Assemblée Constitutante
+- Assemblée Constitutante
+- <https://nixpkgs.zulipchat.com/>
+
+# Conclusion
+
+## Conclusion
+
+- De nouveaux paradigmes
+- Un large pannel d’applications pratiques
+- Des tas de problèmes résolus
+- Beaucoup d’activités et d’engouements
+
+=> Une aventure qui vaut le coup, allez-y !
+
+. . .
+
+Mais prenez votre temps.
 
 # Questions ?
 
