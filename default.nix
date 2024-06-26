@@ -20,20 +20,21 @@ stdenvNoCC.mkDerivation {
       ./Makefile
       ./media
       ./references.bib
+      ./template.html
     ];
   };
 
   makeFlags = "-j";
 
   nativeBuildInputs = [
+    pandoc
+    (python3.withPackages (p: [
+      p.jinja2
+      p.pyyaml
+    ]))
     source-code-pro
     source-sans
     source-serif
-  ];
-
-  buildInputs = [
-    pandoc
-    (python3.withPackages (p: [ p.pyyaml ]))
     (texlive.combined.scheme-full.withPackages (_: [ laas-beamer-theme ]))
   ];
 

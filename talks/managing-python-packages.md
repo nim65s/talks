@@ -7,7 +7,7 @@ author: Guilhem Saurel
 sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
-talk-urls:
+urls:
 - name: Recording
   url: https://peertube.laas.fr/w/rhSeS9Umaab6RKfgf49Tv7
 ---

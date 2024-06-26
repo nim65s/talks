@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My talks</title>
+    </head>
+    <body>
+        <h1>My talks:</h1>
+        {% for _, _, _, talk, pdf in talks %}
+        <div>
+            <h2>{{ talk.title }}</h2>
+            {% if talk.subtitle %}<h3>{{ talk.subtitle }}</h3>{% endif %}
+            <time datetime="{{ talk.date.strftime('%Y-%m-%d') }}">
+                {{ talk.date.strftime('%Y-%m-%d') }}
+            </time>
+            <a href="{{ pdf }}">{{ pdf }}</a>
+            {% if talk.urls %}
+                <ul>
+                    {% for link in talk.urls %}
+                    <a href="{{ link.url }}">{{ link.name }}</a>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </body>
+</html>

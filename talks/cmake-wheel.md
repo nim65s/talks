@@ -7,7 +7,7 @@ author: Guilhem Saurel
 sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
-talk-urls:
+urls:
 - name: Capitole du Libre 2022 (programme)
   url: https://cfp.capitoledulibre.org/cdl-2022/talk/XXQMMV/
 - name: Capitole du Libre 2022 (video)
