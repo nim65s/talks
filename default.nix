@@ -1,6 +1,7 @@
 {
   laas-beamer-theme,
   lib,
+  nodePackages,
   pandoc,
   python3,
   source-code-pro,
@@ -21,12 +22,14 @@ stdenvNoCC.mkDerivation {
       ./media
       ./references.bib
       ./template.html
+      ./style.css
     ];
   };
 
   makeFlags = "-j";
 
   nativeBuildInputs = [
+    nodePackages.tailwindcss
     pandoc
     (python3.withPackages (p: [
       p.jinja2

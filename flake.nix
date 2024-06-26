@@ -45,6 +45,7 @@
           treefmt = {
             projectRootFile = "flake.nix";
             programs = {
+              biome.enable = true;
               deadnix.enable = true;
               nixfmt-rfc-style.enable = true;
               ruff = {
