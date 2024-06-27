@@ -196,7 +196,7 @@ jobs:
 # Notre seigneur et sauveur
 
 \center
-![Nix](media/nix-snowflake-colours.png){width=7cm}
+![Nix](media/nix-snowflake-colours.png){width=6.5cm}
 
 # Nix
 
