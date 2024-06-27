@@ -193,6 +193,7 @@ jobs:
 - github & gitlab + ci/cd
 - docker
 - ssh / rsync / git
+- vim / emacs / …
 
 # Notre seigneur et sauveur
 
@@ -258,3 +259,50 @@ slides.pdf`](https://homepages.laas.fr/gsaurel/talks/slides.pdf)
 ![SA](media/sa.png){width=1cm}
 
 <https://creativecommons.org/licenses/by-sa/4.0/>
+
+# Bonus: Et si je veux patcher pandoc ?
+
+```diff
+--- a/LaTeX.hs	2024-06-27 09:32:42.946386964 +0200
++++ b/LaTeX.hs	2024-06-27 09:32:55.573589497 +0200
+@@ -449,5 +449,10 @@
+   let wrapColumns = if "columns" `elem` classes
+      then \contents ->
+-        inCmd "begin" "columns" <> brackets "T"
++        let fromPct xs =
++              case reverse xs of
++                   '%':ds -> '0':'.': reverse ds
++                   _      -> xs
++            pos = maybe "c" fromPct (lookup "pos" kvs)
++        in inCmd "begin" "columns" <> brackets (text pos)
+             $$ contents
+             $$ inCmd "end" "columns"
+```
+
+```nix
+pandoc.overrideAttrs { patches = [ ./columns.patch ]; };
+```
+
+# Bonus: stalwart, nextcloud
+
+```nix
+{
+  services = {
+    stalwart-mail = {
+      enable = true;
+      settings.server.listener = {
+        "smtp" = {
+          bind = [ "[::]:25" ];
+          protocol = "smtp";
+        };
+      };
+    };
+    nextcloud = {
+      enable = true;
+      package = pkgs.nextcloud29
+      hostName = "localhost";
+      config.adminpassFile = "/etc/nextcloud-pass";
+    };
+  };
+}
+```
