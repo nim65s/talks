@@ -31,4 +31,4 @@ clean:
 	rm -f ${OUTPUTS} public/index.html
 
 watch:
-	watchexec -e md -e html -c reset make -j
+	watchexec -r -e md -e html -c reset make -j

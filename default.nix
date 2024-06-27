@@ -21,8 +21,9 @@ stdenvNoCC.mkDerivation {
       ./Makefile
       ./media
       ./references.bib
-      ./template.html
       ./style.css
+      ./tailwind.config.js
+      ./template.html
     ];
   };
 
@@ -45,10 +46,7 @@ stdenvNoCC.mkDerivation {
     export XDG_CACHE_HOME="$(mktemp -d)"
   '';
 
-  installPhase = ''
-    mkdir $out
-    cp public/*.{pdf,html} $out
-  '';
+  installPhase = "install -Dm 644 public/* -t $out";
 
   meta = {
     description = "my talks;";
