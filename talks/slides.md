@@ -187,6 +187,7 @@ jobs:
 - watchexec (rust: cargo install / cargo binstall)
 - pdfpc (vala, gtk: cmake)
 - makefile
+- html
 - python + pyyaml + jinja (pip / poetry / …)
 - tailwind css (npm / yarn / …)
 - github & gitlab + ci/cd
@@ -198,7 +199,7 @@ jobs:
 \center
 ![Nix](media/nix-snowflake-colours.png){width=6.5cm}
 
-# Nix
+# Nix: paquet
 
 ```nix
 stdenvNoCC.mkDerivation {
@@ -216,6 +217,25 @@ stdenvNoCC.mkDerivation {
   ];
   installPhase = "install -Dm 644 public/* -t $out";
 }
+```
+
+# Nix: flake
+
+```nix
+inputs.nixpkgs.url = "github:NixOS/nixpkgs";
+outputs =
+  inputs@{ flake-parts, ... }:
+  flake-parts.lib.mkFlake { inherit inputs; } {
+    perSystem = { pkgs, self', ... }: {
+      packages.default = pkgs.callPackage ./talks.nix { };
+      devShells.default = pkgs.mkShell {
+        inputsFrom = [ self'.packages.default ];
+        packages = [
+          pkgs.pdfpc
+          pkgs.watchexec
+        ];
+      };
+    };
 ```
 
 # Questions ?
