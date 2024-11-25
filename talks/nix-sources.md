@@ -8,7 +8,7 @@ sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 header-includes:
-- \titlegraphic{\includegraphics[height=1.5cm]{media/cdl23.pdf}}
+- \titlegraphic{\includegraphics[height=1.5cm]{media/cdl24.pdf}}
 urls:
 - name: Capitole du Libre 2024
   url: https://cfp.capitoledulibre.org/cdl-2024/talk/VB7PBH/
@@ -139,8 +139,8 @@ pour un paquet, ou un environnement, ou un OS
 
 ## NixOS stable & unstable
 
-- une version stable tous les 6 mois: `nixos-24.11`
 - une rolling release: `nixos-unstable`
+- une version stable tous les 6 mois: `nixos-24.11`
 
 . . .
 
