@@ -7,8 +7,10 @@ sansfont: Source Sans 3
 mainfont: Source Serif 4
 monofont: Source Code Pro
 urls:
-- name: Recording
+- name: Recording (youtube)
   url: https://www.youtube.com/watch?v=FtZd1qKd1GQ
+- name: Recording (peertube)
+  url: https://videos.capitoledulibre.org/w/imXY3k3TZZWifMjoaF6Chg
 - name: Capitole du Libre 2022
   url: https://cfp.capitoledulibre.org/cdl-2022/talk/D7JDBY/
 ---

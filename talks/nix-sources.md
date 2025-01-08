@@ -10,6 +10,8 @@ monofont: Source Code Pro
 header-includes:
 - \titlegraphic{\includegraphics[height=1.5cm]{media/cdl24.pdf}}
 urls:
+- name: Recording
+  url: https://videos.capitoledulibre.org/w/mbsyVFXQRzWJpXj4doRAvA
 - name: Capitole du Libre 2024
   url: https://cfp.capitoledulibre.org/cdl-2024/talk/VB7PBH/
 ---

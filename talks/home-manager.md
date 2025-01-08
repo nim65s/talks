@@ -10,8 +10,10 @@ monofont: Source Code Pro
 header-includes:
 - \titlegraphic{\includegraphics[height=1.5cm]{media/cdl23.pdf}}
 urls:
-- name: Recording
+- name: Recording (youtube)
   url: https://www.youtube.com/watch?v=CQ8vA90T0Wc
+- name: Recording (peertube)
+  url: https://videos.capitoledulibre.org/w/voXMjZNkJAY1GtP4Bgsaeq
 - name: Capitole du Libre 2023
   url: https://cfp.capitoledulibre.org/cdl-2023/talk/ZTL3XU/
 ---
