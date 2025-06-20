@@ -2,7 +2,10 @@ SOURCES = $(wildcard talks/*.md)
 OUTPUTS = $(SOURCES:talks/%.md=public/%.pdf)
 DEST = "/usr/local/homepages/gsaurel/talks"
 
-all: ${OUTPUTS} public/index.html public/style.css
+all: html pdfs
+
+pdfs: ${OUTPUTS}
+html: public/index.html public/style.css
 
 public/%.pdf: talks/%.md references.bib
 	pandoc -s \
@@ -14,11 +17,10 @@ public/%.pdf: talks/%.md references.bib
 		--fail-if-warnings \
 		-o $@ $<
 
-public/index.html: ${SOURCES} index.py template.html
-	mkdir -p public
-	python3 index.py
+public/index.html: ${SOURCES} nim65s_talks_index.py template.html
+	nim65s-talks-index
 
-public/style.css: public/index.html style.css
+public/style.css: style.css public/index.html
 	tailwindcss -i style.css -o public/style.css
 
 check: all

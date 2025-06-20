@@ -11,8 +11,23 @@
       url = "git+https://gitlab.laas.fr/gsaurel/laas-beamer-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pyproject-build-systems = {
+      url = "github:pyproject-nix/build-system-pkgs";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+      inputs.uv2nix.follows = "uv2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pyproject-nix = {
+      url = "github:pyproject-nix/pyproject.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    uv2nix = {
+      url = "github:pyproject-nix/uv2nix";
+      inputs.pyproject-nix.follows = "pyproject-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -25,29 +40,58 @@
       perSystem =
         {
           config,
+          inputs',
+          lib,
           pkgs,
           self',
-          system,
           ...
         }:
         {
           devShells.default = pkgs.mkShell {
             nativeBuildInputs = [ config.treefmt.build.wrapper ];
-            inputsFrom = [ self'.packages.default ];
+            inputsFrom = [
+              self'.packages.nim65s-talks-index
+              self'.packages.nim65s-talks-pdfs
+            ];
+            env = {
+              UV_NO_SYNC = "1";
+              UV_PYTHON = lib.getExe' self'.packages.editableVirtualenv "python";
+              UV_PYTHON_DOWNLOADS = "never";
+            };
             packages = [
+              pkgs.nodePackages.tailwindcss
               pkgs.pdfpc
               pkgs.watchexec
+              self'.packages.editableVirtualenv
             ];
+            shellHook = ''
+              unset PYTHONPATH
+              export REPO_ROOT=$(git rev-parse --show-toplevel)
+            '';
+
           };
-          packages.default = pkgs.callPackage ./default.nix {
-            laas-beamer-theme = inputs.laas-beamer-theme.packages.${system}.default;
+          packages = {
+            inherit (self'.packages.nim65s-talks-index.passthru) editableVirtualenv virtualenv;
+            default = pkgs.callPackage ./pkgs {
+              inherit (self'.packages) nim65s-talks-pdfs nim65s-talks-html;
+            };
+            nim65s-talks-index = pkgs.callPackage ./pkgs/index.nix {
+              inherit inputs;
+            };
+            nim65s-talks-pdfs = pkgs.callPackage ./pkgs/pdfs.nix {
+              inherit (self'.packages) laas-beamer-theme;
+            };
+            nim65s-talks-html = pkgs.callPackage ./pkgs/html.nix {
+              inherit (self'.packages) nim65s-talks-index;
+            };
+            laas-beamer-theme = inputs'.laas-beamer-theme.packages.default;
           };
           treefmt = {
             projectRootFile = "flake.nix";
             programs = {
               biome.enable = true;
               deadnix.enable = true;
-              nixfmt-rfc-style.enable = true;
+              nixfmt.enable = true;
               ruff = {
                 check = true;
                 format = true;

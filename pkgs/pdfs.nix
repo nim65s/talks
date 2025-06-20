@@ -1,55 +1,54 @@
 {
+  breakpointHook,
   laas-beamer-theme,
   lib,
-  nodePackages,
   pandoc,
-  python3,
   source-code-pro,
   source-sans,
   source-serif,
   stdenvNoCC,
   texlive,
+  writableTmpDirAsHomeHook,
 }:
 stdenvNoCC.mkDerivation {
-  name = "talks";
+  name = "nim65s-talks-pdfs";
 
   src = lib.fileset.toSource {
-    root = ./.;
+    root = ../.;
     fileset = lib.fileset.unions [
-      (lib.fileset.fileFilter (file: file.hasExt "md") ./talks)
-      ./index.py
-      ./Makefile
-      ./media
-      ./references.bib
-      ./style.css
-      ./tailwind.config.js
-      ./template.html
+      (lib.fileset.fileFilter (file: file.hasExt "md") ../talks)
+      ../Makefile
+      ../media
+      ../public
+      ../references.bib
     ];
   };
 
-  makeFlags = "-j";
+  makeFlags = [
+    "-j"
+    "pdfs"
+  ];
 
   nativeBuildInputs = [
-    nodePackages.tailwindcss
+    breakpointHook
+    writableTmpDirAsHomeHook
     pandoc
-    (python3.withPackages (p: [
-      p.jinja2
-      p.pyyaml
-    ]))
     source-code-pro
     source-sans
     source-serif
     (texlive.combined.scheme-full.withPackages (_: [ laas-beamer-theme ]))
   ];
 
-  preBuild = ''
-    export XDG_CACHE_HOME="$(mktemp -d)"
+  installPhase = ''
+    runHook preInstall
+
+    install -Dm 644 public/* -t $out
+
+    runHook postInstall
   '';
 
-  installPhase = "install -Dm 644 public/* -t $out";
-
   meta = {
-    description = "my talks;";
+    description = "PDFs of my talks;";
     homepage = "https://github.com/nim65s/talks";
     license = lib.licenses.cc-by-sa-40;
     maintainers = [ lib.maintainers.nim65s ];

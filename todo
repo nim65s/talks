@@ -1,0 +1,6 @@
+nix run .#nim65s-talks-index
+warning: Git tree '/home/nim/local/nim65s/talks' is dirty
+Traceback (most recent call last):
+  File "/nix/store/yq7vfhci3sfzfqlgjnq8c67rxwgdx0cs-nim65s-talks-index-1.0.0/bin/nim65s-talks-index", line 4, in <module>
+    from nim65s_talks_index import main
+ModuleNotFoundError: No module named 'nim65s_talks_index'
