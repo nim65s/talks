@@ -1,10 +1,11 @@
-image: ghcr.io/nixos/nix
+image: docker.nix-community.org/nixpkgs/nix-flakes
 
 build:
   stage: build
   script:
-    - nix --extra-experimental-features "nix-command flakes" flake check
-    - nix --extra-experimental-features "nix-command flakes" build
+    - nix flake check -L
+    - nix build -L
+    - mkdir -p public
     - cp result/* public/
   artifacts:
     paths:
