@@ -62,28 +62,34 @@
               })
             ];
           };
-          devShells.default = pkgs.mkShell {
-            nativeBuildInputs = [ config.treefmt.build.wrapper ];
-            inputsFrom = [
-              self'.packages.nim65s-talks-css
-              self'.packages.nim65s-talks-index
-              self'.packages.nim65s-talks-pdfs
-            ];
-            env = {
-              UV_NO_SYNC = "1";
-              UV_PYTHON = lib.getExe' self'.packages.editableVirtualenv "python";
-              UV_PYTHON_DOWNLOADS = "never";
+          devShells = {
+            default = pkgs.mkShell {
+              nativeBuildInputs = [ config.treefmt.build.wrapper ];
+              inputsFrom = [
+                self'.packages.nim65s-talks-css
+                self'.packages.nim65s-talks-index
+                self'.packages.nim65s-talks-pdfs
+              ];
+              env = {
+                UV_NO_SYNC = "1";
+                UV_PYTHON = lib.getExe' self'.packages.editableVirtualenv "python";
+                UV_PYTHON_DOWNLOADS = "never";
+              };
+              packages = [
+                pkgs.pdfpc
+                pkgs.watchexec
+                self'.packages.editableVirtualenv
+              ];
+              shellHook = ''
+                unset PYTHONPATH
+                export REPO_ROOT=$(git rev-parse --show-toplevel)
+              '';
             };
-            packages = [
-              pkgs.pdfpc
-              pkgs.watchexec
-              self'.packages.editableVirtualenv
-            ];
-            shellHook = ''
-              unset PYTHONPATH
-              export REPO_ROOT=$(git rev-parse --show-toplevel)
-            '';
-
+            deploy = pkgs.mkShell {
+              packages = [
+                pkgs.rsync
+              ];
+            };
           };
           packages = {
             inherit (pkgs)
