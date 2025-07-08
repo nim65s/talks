@@ -44,7 +44,7 @@ install:
 	install -Dm 644 public/* -t $(PREFIX)
 
 deploy:
-	chmod a+r,g+w ${OUTPUTS}
+	chmod -R a+rX,g+w public
 	rsync -avzP --delete -e "ssh -o UserKnownHostsFile=.known_hosts" public/ gsaurel-deploy@memmos.laas.fr:${DEST}
 
 clean:
