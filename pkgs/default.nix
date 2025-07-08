@@ -1,5 +1,6 @@
 {
   lib,
+  nim65s-talks-css,
   nim65s-talks-html,
   nim65s-talks-pdfs,
   stdenvNoCC,
@@ -10,11 +11,16 @@ stdenvNoCC.mkDerivation {
   src = lib.fileset.toSource {
     root = ../.;
     fileset = lib.fileset.unions [
-      ../public
+      ../Makefile
     ];
   };
 
+  makeFlags = [
+    "PREFIX=$(out)"
+  ];
+
   buildInputs = [
+    nim65s-talks-css
     nim65s-talks-html
     nim65s-talks-pdfs
   ];
@@ -22,16 +28,10 @@ stdenvNoCC.mkDerivation {
   buildPhase = ''
     runHook preBuild
 
+    mkdir -p public
+    cp ${nim65s-talks-css}/* public
     cp ${nim65s-talks-pdfs}/* public
     cp ${nim65s-talks-html}/* public
-
-    runHook postBuild
-  '';
-
-  installPhase = ''
-    runHook preInstall
-
-    install -Dm 644 public/* -t $out
 
     runHook postBuild
   '';

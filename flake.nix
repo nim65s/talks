@@ -50,6 +50,7 @@
           devShells.default = pkgs.mkShell {
             nativeBuildInputs = [ config.treefmt.build.wrapper ];
             inputsFrom = [
+              self'.packages.nim65s-talks-css
               self'.packages.nim65s-talks-index
               self'.packages.nim65s-talks-pdfs
             ];
@@ -59,9 +60,10 @@
               UV_PYTHON_DOWNLOADS = "never";
             };
             packages = [
-              pkgs.nodePackages.tailwindcss
               pkgs.pdfpc
+              # pkgs.tailwindcss_3
               pkgs.watchexec
+              # pkgs.yarn-berry_4
               self'.packages.editableVirtualenv
             ];
             shellHook = ''
@@ -73,8 +75,9 @@
           packages = {
             inherit (self'.packages.nim65s-talks-index.passthru) editableVirtualenv virtualenv;
             default = pkgs.callPackage ./pkgs {
-              inherit (self'.packages) nim65s-talks-pdfs nim65s-talks-html;
+              inherit (self'.packages) nim65s-talks-css nim65s-talks-html nim65s-talks-pdfs;
             };
+            nim65s-talks-css = pkgs.callPackage ./pkgs/css.nix { };
             nim65s-talks-index = pkgs.callPackage ./pkgs/index.nix {
               inherit inputs;
             };

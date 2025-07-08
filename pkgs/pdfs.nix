@@ -19,14 +19,14 @@ stdenvNoCC.mkDerivation {
       (lib.fileset.fileFilter (file: file.hasExt "md") ../talks)
       ../Makefile
       ../media
-      ../public
       ../references.bib
     ];
   };
 
   makeFlags = [
-    "-j"
+    "PREFIX=$(out)"
     "pdfs"
+    "-j"
   ];
 
   nativeBuildInputs = [
@@ -38,14 +38,6 @@ stdenvNoCC.mkDerivation {
     source-serif
     (texlive.combined.scheme-full.withPackages (_: [ laas-beamer-theme ]))
   ];
-
-  installPhase = ''
-    runHook preInstall
-
-    install -Dm 644 public/* -t $out
-
-    runHook postInstall
-  '';
 
   meta = {
     description = "PDFs of my talks;";

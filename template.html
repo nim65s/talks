@@ -1,46 +1,45 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>My talks</title>
-        <link href="./style.css" rel="stylesheet">
-    </head>
-    <body class="bg-indigo-50 text-indigo-950 dark:bg-indigo-800 dark:text-indigo-50">
-        <h1 class="text-3xl m-12 text-center">My talks</h1>
-        <hr>
-        <div class="m-8">
-            {% for _, _, _, stem, talk in talks %}
-            <div
-                    onclick="document.getElementById('{{ stem }}').scrollIntoView({ behavior: 'smooth' });
-                    setTimeout(() => location.hash = '#{{ stem }}', 500)"
-                    class="border-r-2 border-b-2 border-slate-900 dark:border-slate-100 rounded-br-lg mt-8 p-4
-                           hover:bg-indigo-200 hover:dark:bg-indigo-950 bg-gradient-to-l from-indigo-200 dark:from-indigo-950"
-                    id="{{ stem }}">
-
-                    <div class="float-right">
-                        <time datetime="{{ talk.date.strftime('%Y-%m-%d') }}" class="font-mono">
-                            {{ talk.date.strftime('%d.%m.%Y') }}
-                        </time>
-                    </div>
-                    <h2 class="text-2xl text-lime-600 dark:text-lime-400 mb-1">{{ talk.title }}</h2>
-                    {% if talk.subtitle %}<h3 class="text-xl">{{ talk.subtitle }}</h3>{% endif %}
+  <head>
+    <meta charset="utf-8">
+    <title>My talks</title>
+    <link href="./style.css" rel="stylesheet">
+  </head>
+  <body class="latte dark:mocha min-h-screen bg-base text-text">
+    <div class="max-w-screen-sm mx-auto">
+      <h1 class="text-3xl m-12 text-center text-teal">My talks</h1>
+      <hr>
+      <div class="m-8">
+        {% for _, _, _, stem, talk in talks %}
+          <div
+            onclick="document.getElementById('{{ stem }}').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => location.hash = '#{{ stem }}', 500)"
+            class="border-r-2 border-b-2 rounded-br-lg border-green mt-24 p-4"
+            id="{{ stem }}">
+          
+            <div class="float-right text-lavender">
+              <time datetime="{{ talk.date|date_format }}" class="font-mono">
+                {{ talk.date|date_format }}
+              </time>
             </div>
-            <a href="{{ stem }}.pdf">
-                <div class="border-r border-b border-slate-500 rounded-br-lg py-2 mx-8 hover:bg-indigo-200
-                            hover:dark:bg-indigo-900 columns-2 bg-gradient-to-l from-indigo-100 dark:from-indigo-900">
-                    <div class="w-full text-right">Slides</div>
-                    <div class="w-full font-mono text-sm p-1 underline">{{ stem }}.pdf</div>
-                </div>
-            </a>
-            {% for link in talk.urls %}
+            <h2 class="text-2xl mb-1 text-sky">{{ talk.title }}</h2>
+            {% if talk.subtitle %}<h3 class="text-xl text-sapphire">{{ talk.subtitle }}</h3>{% endif %}
+          </div>
+          <a href="{{ stem }}.pdf">
+            <div class="border-r border-b rounded-br-lg border-yellow py-2 mx-8 columns-2">
+              <div class="w-full text-right text-lavender">Slides</div>
+              <div class="w-full font-mono text-sm p-1 underline text-blue">{{ stem }}.pdf</div>
+            </div>
+          </a>
+          {% for link in talk.urls %}
             <a href="{{ link.url }}">
-                <div class="border-r border-b border-slate-500 rounded-br-lg py-2 mx-8 hover:bg-indigo-200
-                            hover:dark:bg-indigo-900 columns-2 bg-gradient-to-l from-indigo-100 dark:from-indigo-900">
-                    <div class="w-full text-right">{{ link.name }}</div>
-                    <div class="w-full font-mono text-sm p-1 underline">{{ link.url }}</div>
-                </div>
+              <div class="border-r border-b rounded-br-lg border-yellow py-2 mx-8 columns-2">
+                <div class="w-full text-right text-lavender">{{ link.name }}</div>
+                <div class="w-full font-mono text-sm p-1 underline text-blue">{{ link.url|url_format }}</div>
+              </div>
             </a>
-            {% endfor %}
-            {% endfor %}
-        </div>
-    </body>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </body>
 </html>

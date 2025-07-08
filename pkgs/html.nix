@@ -1,10 +1,10 @@
 {
   lib,
-  nim65s-talks-index,
-  nodePackages,
   stdenvNoCC,
+
+  nim65s-talks-index,
 }:
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation (_finalAttrs: {
   name = "nim65s-talks-html";
 
   src = lib.fileset.toSource {
@@ -13,9 +13,6 @@ stdenvNoCC.mkDerivation {
       (lib.fileset.fileFilter (file: file.hasExt "md") ../talks)
       ../nim65s_talks_index.py
       ../Makefile
-      ../public
-      ../style.css
-      ../tailwind.config.js
       ../template.html
     ];
   };
@@ -23,22 +20,13 @@ stdenvNoCC.mkDerivation {
   env.PYTHONPATH = ".";
 
   makeFlags = [
-    "-j"
+    "PREFIX=$(out)"
     "html"
   ];
 
   nativeBuildInputs = [
-    nodePackages.tailwindcss
     nim65s-talks-index.passthru.virtualenv
   ];
-
-  installPhase = ''
-    runHook preInstall
-
-    install -Dm 644 public/* -t $out
-
-    runHook postInstall
-  '';
 
   meta = {
     description = "HTML index of my talks;";
@@ -46,4 +34,4 @@ stdenvNoCC.mkDerivation {
     license = lib.licenses.cc-by-sa-40;
     maintainers = [ lib.maintainers.nim65s ];
   };
-}
+})

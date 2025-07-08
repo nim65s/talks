@@ -2,9 +2,18 @@
 """Generate public/index.html."""
 
 from pathlib import Path
+from urllib.parse import urlparse
 
-from jinja2 import Template
+from jinja2 import Environment
 from yaml import Loader, load
+
+
+def date_format(value):
+    return value.strftime("%Y-%m-%d")
+
+
+def url_format(value):
+    return urlparse(value).hostname
 
 
 def get_talks():
@@ -23,7 +32,10 @@ def get_talks():
 
 
 def main():
-    template = Template(Path("template.html").read_text())
+    env = Environment()
+    env.filters["date_format"] = date_format
+    env.filters["url_format"] = url_format
+    template = env.from_string(Path("template.html").read_text())
     Path("public/index.html").write_text(template.render({"talks": get_talks()}))
 
 
