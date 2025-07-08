@@ -26,7 +26,10 @@ public/index.html: ${SOURCES} nim65s_talks_index.py template.html
 	mkdir -p public
 	nim65s-talks-index
 
-public/style.css: style.css template.html package.json yarn.lock
+node_modules:
+	yarn install
+
+public/style.css: style.css template.html package.json yarn.lock node_modules
 	mkdir -p public
 	yarn build
 
