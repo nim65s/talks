@@ -1167,6 +1167,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@catppuccin/tailwindcss": "npm:^0.1.6"
+    simple-icons: "npm:^15.5.0"
     tailwindcss: "npm:^3.4.17"
   languageName: unknown
   linkType: soft
@@ -1216,6 +1217,13 @@ __metadata:
   version: 4.1.0
   resolution: "signal-exit@npm:4.1.0"
   checksum: 10c0/41602dce540e46d599edba9d9860193398d135f7ff72cab629db5171516cfae628d21e7bfccde1bbfdf11c48726bc2a6d1a8fb8701125852fbfda7cf19c6aa83
+  languageName: node
+  linkType: hard
+
+"simple-icons@npm:^15.5.0":
+  version: 15.5.0
+  resolution: "simple-icons@npm:15.5.0"
+  checksum: 10c0/b8ee79e74993e4703e7ab979e4c915f170844205a814e96a5cc38a0c54bcba06decf406ad99073f86dcd15e04ba31c6890d49bbf410ec7518de9bdcef8eefc6c
   languageName: node
   linkType: hard
 

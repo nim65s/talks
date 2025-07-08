@@ -36,7 +36,12 @@ def main():
     env.filters["date_format"] = date_format
     env.filters["url_format"] = url_format
     template = env.from_string(Path("template.html").read_text())
-    Path("public/index.html").write_text(template.render({"talks": get_talks()}))
+    icons = ["creativecommons", "github", "gitlab"]
+    ctx = {
+        "talks": get_talks(),
+        **{icon: Path(f"public/{icon}.svg").read_text() for icon in icons},
+    }
+    Path("public/index.html").write_text(template.render(ctx))
 
 
 if __name__ == "__main__":

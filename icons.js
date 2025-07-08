@@ -1,0 +1,17 @@
+const fs = require("fs");
+const path = require("path");
+const simpleIcons = require("simple-icons");
+
+const brands = ["Creative Commons", "GitHub", "GitLab"];
+const output = path.join(__dirname, "public");
+
+for (const icon of Object.values(simpleIcons)) {
+	if (brands.includes(icon.title)) {
+		const filePath = path.join(output, `${icon.slug}.svg`);
+		const svg = icon.svg.replace(
+			"svg ",
+			'svg class="w-8 h-8" fill="currentColor" ',
+		);
+		fs.writeFileSync(filePath, svg, "utf8");
+	}
+}

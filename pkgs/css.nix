@@ -21,7 +21,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   offlineCache = yarn-berry_4.fetchYarnBerryDeps {
     inherit (finalAttrs) src;
-    hash = "sha256-/BiBsluSx1S0fpCqRI/PlP6Dp82UavGbo6M2xmS8C3I=";
+    hash = "sha256-CFqa26ydNsdRasQgmTlpmzMtO3Upx9Ld5RXKIML8m/o=";
   };
 
   makeFlags = [

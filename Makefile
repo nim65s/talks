@@ -22,7 +22,7 @@ public/%.pdf: talks/%.md references.bib
 		--fail-if-warnings \
 		-o $@ $<
 
-public/index.html: ${SOURCES} nim65s_talks_index.py template.html
+public/index.html: ${SOURCES} nim65s_talks_index.py template.html public/creativecommons.svg
 	mkdir -p public
 	nim65s-talks-index
 
@@ -31,7 +31,11 @@ node_modules:
 
 public/style.css: style.css template.html package.json yarn.lock node_modules
 	mkdir -p public
-	yarn build
+	yarn css
+
+public/creativecommons.svg: package.json yarn.lock node_modules icons.js
+	mkdir -p public
+	yarn svg
 
 check: all
 
@@ -47,4 +51,4 @@ clean:
 	rm -rf public
 
 watch:
-	watchexec -r -e md -e html -c reset make -j
+	watchexec -r -e md -e html -e js -c reset make -j
