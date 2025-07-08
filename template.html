@@ -32,7 +32,7 @@
           <div
             onclick="document.getElementById('{{ stem }}').scrollIntoView({ behavior: 'smooth' });
             setTimeout(() => location.hash = '#{{ stem }}', 500)"
-            class="border-r-2 border-b-2 rounded-br-lg border-yellow mt-24 p-4 hover:bg-surface0 bg-gradient-to-l from-surface0"
+            class="border-r-2 border-b-2 rounded-br-lg border-yellow mt-24 p-4 hover:bg-mantle bg-gradient-to-l from-mantle"
             id="{{ stem }}">
 
             <div class="float-right text-lavender">
@@ -44,14 +44,14 @@
             {% if talk.subtitle %}<h3 class="text-xl text-sapphire">{{ talk.subtitle }}</h3>{% endif %}
           </div>
           <a href="{{ stem }}.pdf">
-            <div class="border-r border-b rounded-br-lg border-green py-2 mx-8 columns-2 hover:bg-surface1 bg-gradient-to-l from-surface1">
+            <div class="border-r border-b rounded-br-lg border-green py-2 mx-8 columns-2 hover:bg-crust bg-gradient-to-l from-crust">
               <div class="w-full text-right text-lavender">Slides</div>
               <div class="w-full font-mono text-sm p-1 underline text-blue">{{ stem }}.pdf</div>
             </div>
           </a>
           {% for link in talk.urls %}
             <a href="{{ link.url }}">
-              <div class="border-r border-b rounded-br-lg border-green py-2 mx-8 columns-2 hover:bg-surface1 bg-gradient-to-l from-surface1">
+              <div class="border-r border-b rounded-br-lg border-green py-2 mx-8 columns-2 hover:bg-crust bg-gradient-to-l from-crust">
                 <div class="w-full text-right text-lavender">{{ link.name }}</div>
                 <div class="w-full font-mono text-sm p-1 underline text-blue">{{ link.url|url_format }}</div>
               </div>
