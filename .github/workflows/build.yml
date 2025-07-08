@@ -15,6 +15,8 @@ jobs:
             keep-outputs = true
       - name: Restore and save Nix store
         uses: nix-community/cache-nix-action@v6
+        with:
+          primary-key: nix-${{ hashFiles('**/*.nix', '**/flake.lock') }}
       - run: nix flake check -L
       - run: nix build -L
       - uses: actions/upload-pages-artifact@v3
