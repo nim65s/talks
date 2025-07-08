@@ -44,9 +44,24 @@
           lib,
           pkgs,
           self',
+          system,
           ...
         }:
         {
+          _module.args.pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = [
+              (_: _: {
+                inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
+                laas-beamer-theme = inputs'.laas-beamer-theme.packages.default;
+                nim65s-talks = pkgs.callPackage ./pkgs { };
+                nim65s-talks-css = pkgs.callPackage ./pkgs/css.nix { };
+                nim65s-talks-html = pkgs.callPackage ./pkgs/html.nix { };
+                nim65s-talks-index = pkgs.callPackage ./pkgs/index.nix { };
+                nim65s-talks-pdfs = pkgs.callPackage ./pkgs/pdfs.nix { };
+              })
+            ];
+          };
           devShells.default = pkgs.mkShell {
             nativeBuildInputs = [ config.treefmt.build.wrapper ];
             inputsFrom = [
@@ -61,9 +76,7 @@
             };
             packages = [
               pkgs.pdfpc
-              # pkgs.tailwindcss_3
               pkgs.watchexec
-              # pkgs.yarn-berry_4
               self'.packages.editableVirtualenv
             ];
             shellHook = ''
@@ -73,21 +86,15 @@
 
           };
           packages = {
-            inherit (self'.packages.nim65s-talks-index.passthru) editableVirtualenv virtualenv;
-            default = pkgs.callPackage ./pkgs {
-              inherit (self'.packages) nim65s-talks-css nim65s-talks-html nim65s-talks-pdfs;
-            };
-            nim65s-talks-css = pkgs.callPackage ./pkgs/css.nix { };
-            nim65s-talks-index = pkgs.callPackage ./pkgs/index.nix {
-              inherit inputs;
-            };
-            nim65s-talks-pdfs = pkgs.callPackage ./pkgs/pdfs.nix {
-              inherit (self'.packages) laas-beamer-theme;
-            };
-            nim65s-talks-html = pkgs.callPackage ./pkgs/html.nix {
-              inherit (self'.packages) nim65s-talks-index;
-            };
-            laas-beamer-theme = inputs'.laas-beamer-theme.packages.default;
+            inherit (pkgs)
+              nim65s-talks
+              nim65s-talks-css
+              nim65s-talks-html
+              nim65s-talks-index
+              nim65s-talks-pdfs
+              ;
+            inherit (pkgs.nim65s-talks-index.passthru) editableVirtualenv virtualenv;
+            default = pkgs.nim65s-talks;
           };
           treefmt = {
             projectRootFile = "flake.nix";

@@ -1,18 +1,19 @@
 {
   lib,
-  inputs,
   python3Packages,
   callPackage,
+  uv2nix,
+  pyproject-nix,
+  pyproject-build-systems,
 }:
 let
-  workspace = inputs.uv2nix.lib.workspace.loadWorkspace { workspaceRoot = ../.; };
+  workspace = uv2nix.lib.workspace.loadWorkspace { workspaceRoot = ../.; };
   overlay = workspace.mkPyprojectOverlay { sourcePreference = "wheel"; };
   pythonSet =
-    (callPackage inputs.pyproject-nix.build.packages { inherit (python3Packages) python; })
-    .overrideScope
+    (callPackage pyproject-nix.build.packages { inherit (python3Packages) python; }).overrideScope
       (
         lib.composeManyExtensions [
-          inputs.pyproject-build-systems.overlays.default
+          pyproject-build-systems.overlays.default
           overlay
           (_final: prev: {
             nim65s-talks-index = prev.nim65s-talks-index.overrideAttrs (super: {
