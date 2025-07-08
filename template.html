@@ -6,59 +6,65 @@
   </head>
   <body class="latte dark:mocha min-h-screen bg-base text-text">
     <div class="max-w-screen-sm mx-auto">
-      <h1 class="text-3xl m-12 grid grid-cols-3 place-items-center">
-        <span>
-          <a class="w-8 h-8 text-text hover:text-peach" href="https://creativecommons.org/licenses/by-sa/4.0/">
-            {{ creativecommons }}
-          </a>
-        </span>
-        <span class="text-teal">
-          <a href="#">
-            My talks
-          </a>
-        </span>
-        <span class="text-text flex gap-4">
-          <a class="w-8 h-8 hover:text-peach" href="https://github.com/nim65s/talks">
-            {{ github }}
-          </a>
-          <a class="w-8 h-8 hover:text-peach" href="https://gitlab.laas.fr/gsaurel/talks">
-            {{ gitlab }}
-          </a>
-        </span>
-      </h1>
-      <hr>
-      <div class="m-8">
-        {% for _, _, _, stem, talk in talks %}
-          <div
-            onclick="document.getElementById('{{ stem }}').scrollIntoView({ behavior: 'smooth' });
-            setTimeout(() => location.hash = '#{{ stem }}', 500)"
-            class="border-r-2 border-b-2 rounded-br-lg border-yellow mt-24 p-4 hover:bg-mantle bg-gradient-to-l from-mantle"
-            id="{{ stem }}">
-
-            <div class="float-right text-lavender">
-              <time datetime="{{ talk.date|date_format }}" class="font-mono">
-                {{ talk.date|date_format }}
-              </time>
-            </div>
-            <h2 class="text-2xl mb-1 text-red">{{ talk.title }}</h2>
-            {% if talk.subtitle %}<h3 class="text-xl text-sapphire">{{ talk.subtitle }}</h3>{% endif %}
-          </div>
-          <a href="{{ stem }}.pdf">
-            <div class="border-r border-b rounded-br-lg border-green py-2 mx-8 columns-2 hover:bg-crust bg-gradient-to-l from-crust">
-              <div class="w-full text-right text-lavender">Slides</div>
-              <div class="w-full font-mono text-sm p-1 underline text-blue">{{ stem }}.pdf</div>
-            </div>
-          </a>
-          {% for link in talk.urls %}
-            <a href="{{ link.url }}">
-              <div class="border-r border-b rounded-br-lg border-green py-2 mx-8 columns-2 hover:bg-crust bg-gradient-to-l from-crust">
-                <div class="w-full text-right text-lavender">{{ link.name }}</div>
-                <div class="w-full font-mono text-sm p-1 underline text-blue">{{ link.url|url_format }}</div>
-              </div>
+      <header>
+        <h1 class="text-3xl m-12 grid grid-cols-3 place-items-center">
+          <span>
+            <a class="w-8 h-8 text-text hover:text-peach" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              {{ creativecommons }}
             </a>
-          {% endfor %}
+          </span>
+          <span class="text-teal">
+            <a href="#">
+              My talks
+            </a>
+          </span>
+          <span class="text-text flex gap-4">
+            <a class="w-8 h-8 hover:text-peach" href="https://github.com/nim65s/talks">
+              {{ github }}
+            </a>
+            <a class="w-8 h-8 hover:text-peach" href="https://gitlab.laas.fr/gsaurel/talks">
+              {{ gitlab }}
+            </a>
+          </span>
+        </h1>
+      </header>
+      <hr>
+      <main class="m-8">
+        {% for _, _, _, stem, talk in talks %}
+          <section class="mt-24">
+            <div
+              onclick="document.getElementById('{{ stem }}').scrollIntoView({ behavior: 'smooth' });
+              setTimeout(() => location.hash = '#{{ stem }}', 500)"
+              class="border-r-2 border-b-2 rounded-br-lg border-yellow p-4 hover:bg-mantle bg-gradient-to-l from-mantle"
+              id="{{ stem }}">
+
+              <div class="float-right text-lavender">
+                <time datetime="{{ talk.date|date_format }}" class="font-mono">
+                  {{ talk.date|date_format }}
+                </time>
+              </div>
+              <h2 class="text-2xl mb-1 text-red">{{ talk.title }}</h2>
+              {% if talk.subtitle %}<h3 class="text-xl text-sapphire">{{ talk.subtitle }}</h3>{% endif %}
+            </div>
+            <dl>
+              <a href="{{ stem }}.pdf">
+                <div class="border-r border-b rounded-br-lg border-green py-2 mx-8 columns-2 hover:bg-crust bg-gradient-to-l from-crust">
+                  <dt class="w-full text-right text-lavender">Slides</dt>
+                  <dd class="w-full font-mono text-sm p-1 underline text-blue">{{ stem }}.pdf</dd>
+                </div>
+              </a>
+              {% for link in talk.urls %}
+                <a href="{{ link.url }}">
+                  <div class="border-r border-b rounded-br-lg border-green py-2 mx-8 columns-2 hover:bg-crust bg-gradient-to-l from-crust">
+                    <dt class="w-full text-right text-lavender">{{ link.name }}</dt>
+                    <dd class="w-full font-mono text-sm p-1 underline text-blue">{{ link.url|url_format }}</dt>
+                  </div>
+                </a>
+              {% endfor %}
+            </dl>
+          </section>
         {% endfor %}
-      </div>
+      </main>
     </div>
   </body>
 </html>
