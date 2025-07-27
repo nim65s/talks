@@ -106,7 +106,10 @@
           treefmt = {
             projectRootFile = "flake.nix";
             programs = {
-              biome.enable = true;
+              biome = {
+                enable = true;
+                excludes = [ "pkgs/missing-hashes.json" ];
+              };
               deadnix.enable = true;
               nixfmt.enable = true;
               ruff = {
