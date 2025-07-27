@@ -54,6 +54,7 @@ watch:
 	watchexec -r -e md -e html -e js -c reset make -j
 
 update:
+	uv lock -U
 	yarn up
 	yarn-berry-fetcher missing-hashes yarn.lock > ./pkgs/missing-hashes.json
 	echo "{ \"hash\": \"`yarn-berry-fetcher prefetch yarn.lock pkgs/missing-hashes.json`\" }" > ./pkgs/lock-hash.json
