@@ -1,12 +1,13 @@
 {
 	"devDependencies": {
 		"@catppuccin/tailwindcss": "^1.0.0",
+		"@tailwindcss/cli": "^4.1.11",
 		"simple-icons": "^15.8.0",
 		"tailwindcss": "^4.1.11"
 	},
 	"packageManager": "yarn@4.9.2",
 	"scripts": {
-		"css": "tailwindcss --minify -i style.css -o public/style.css",
+		"css": "yarn tailwindcss --minify -i style.css -o public/style.css",
 		"svg": "node icons.js"
 	}
 }

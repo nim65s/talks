@@ -2,7 +2,6 @@
   lib,
   stdenvNoCC,
 
-  tailwindcss_4,
   yarn-berry_4,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
@@ -20,9 +19,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     ];
   };
 
+  missingHashes = ./missing-hashes.json;
   offlineCache = yarn-berry_4.fetchYarnBerryDeps {
-    inherit (finalAttrs) src;
-    hash = "sha256-fKxxacf1ONsr0SeHeAQwVe6fToJ40nFsjONYh5zQ8Cw=";
+    inherit (finalAttrs) src missingHashes;
+    inherit (lib.importJSON ./lock-hash.json) hash;
   };
 
   makeFlags = [
@@ -31,7 +31,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   ];
 
   nativeBuildInputs = [
-    tailwindcss_4
     yarn-berry_4
     yarn-berry_4.yarnBerryConfigHook
   ];

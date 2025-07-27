@@ -21,9 +21,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     ];
   };
 
+  missingHashes = ./missing-hashes.json;
   offlineCache = yarn-berry_4.fetchYarnBerryDeps {
-    inherit (finalAttrs) src;
-    hash = "sha256-fKxxacf1ONsr0SeHeAQwVe6fToJ40nFsjONYh5zQ8Cw=";
+    inherit (finalAttrs) src missingHashes;
+    inherit (lib.importJSON ./lock-hash.json) hash;
   };
 
   env.PYTHONPATH = ".";

@@ -78,6 +78,7 @@
               packages = [
                 pkgs.pdfpc
                 pkgs.watchexec
+                pkgs.yarn-berry_4.yarn-berry-fetcher
                 self'.packages.editableVirtualenv
               ];
               shellHook = ''
