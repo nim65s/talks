@@ -23,7 +23,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   offlineCache = yarn-berry_4.fetchYarnBerryDeps {
     inherit (finalAttrs) src;
-    hash = "sha256-CFqa26ydNsdRasQgmTlpmzMtO3Upx9Ld5RXKIML8m/o=";
+    hash = "sha256-fKxxacf1ONsr0SeHeAQwVe6fToJ40nFsjONYh5zQ8Cw=";
   };
 
   env.PYTHONPATH = ".";
