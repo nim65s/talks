@@ -2,6 +2,7 @@
   lib,
   stdenvNoCC,
 
+  tailwindcss_4,
   yarn-berry_4,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
@@ -30,6 +31,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   ];
 
   nativeBuildInputs = [
+    tailwindcss_4
     yarn-berry_4
     yarn-berry_4.yarnBerryConfigHook
   ];
