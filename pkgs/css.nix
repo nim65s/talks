@@ -13,7 +13,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       ../Makefile
       ../package.json
       ../style.css
-      ../tailwind.config.js
       ../template.html
       ../yarn.lock
     ];
