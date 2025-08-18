@@ -51,24 +51,26 @@
           _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
             overlays = [
-              (_: _: {
-                inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
-                laas-beamer-theme = inputs'.laas-beamer-theme.packages.default;
-                nim65s-talks = pkgs.callPackage ./pkgs { };
-                nim65s-talks-css = pkgs.callPackage ./pkgs/css.nix { };
-                nim65s-talks-html = pkgs.callPackage ./pkgs/html.nix { };
-                nim65s-talks-index = pkgs.callPackage ./pkgs/index.nix { };
-                nim65s-talks-pdfs = pkgs.callPackage ./pkgs/pdfs.nix { };
-              })
+              (
+                _: _:
+                {
+                  inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
+                  laas-beamer-theme = inputs'.laas-beamer-theme.packages.default;
+                }
+                // lib.filesystem.packagesFromDirectoryRecursive {
+                  inherit (pkgs) callPackage;
+                  directory = ./pkgs;
+                }
+              )
             ];
           };
           devShells = {
-            default = pkgs.mkShell {
+            default = pkgs.mkShellNoCC {
               nativeBuildInputs = [ config.treefmt.build.wrapper ];
               inputsFrom = [
-                self'.packages.nim65s-talks-css
-                self'.packages.nim65s-talks-index
-                self'.packages.nim65s-talks-pdfs
+                self'.packages.talks-css
+                self'.packages.talks-index
+                self'.packages.talks-pdfs
               ];
               env = {
                 UV_NO_SYNC = "1";
@@ -94,28 +96,26 @@
           };
           packages = {
             inherit (pkgs)
-              nim65s-talks
-              nim65s-talks-css
-              nim65s-talks-html
-              nim65s-talks-index
-              nim65s-talks-pdfs
+              talks
+              talks-css
+              talks-html
+              talks-index
+              talks-pdfs
               ;
-            inherit (pkgs.nim65s-talks-index.passthru) editableVirtualenv virtualenv;
-            default = pkgs.nim65s-talks;
+            inherit (pkgs.talks-index.passthru) editableVirtualenv virtualenv;
+            default = pkgs.talks;
           };
-          treefmt = {
-            projectRootFile = "flake.nix";
-            programs = {
-              biome = {
-                enable = true;
-                excludes = [ "pkgs/missing-hashes.json" ];
-              };
-              deadnix.enable = true;
-              nixfmt.enable = true;
-              ruff = {
-                check = true;
-                format = true;
-              };
+          treefmt.programs = {
+            biome = {
+              enable = true;
+              excludes = [ "pkgs/missing-hashes.json" ];
+            };
+            deadnix.enable = true;
+            nixfmt.enable = true;
+            oxipng.enable = true;
+            ruff = {
+              check = true;
+              format = true;
             };
           };
         };
