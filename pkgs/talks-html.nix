@@ -2,11 +2,11 @@
   lib,
   stdenvNoCC,
 
-  nim65s-talks-index,
+  talks-index,
   yarn-berry_4,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
-  name = "nim65s-talks-html";
+  name = "talks-html";
 
   src = lib.fileset.toSource {
     root = ../.;
@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       (lib.fileset.fileFilter (file: file.hasExt "md") ../talks)
       ../icons.js
       ../package.json
-      ../nim65s_talks_index.py
+      ../src/talks_index/__init__.py
       ../Makefile
       ../template.html
       ../yarn.lock
@@ -27,7 +27,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     inherit (lib.importJSON ./lock-hash.json) hash;
   };
 
-  env.PYTHONPATH = ".";
+  env.PYTHONPATH = "src";
 
   makeFlags = [
     "PREFIX=$(out)"
@@ -35,7 +35,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   ];
 
   nativeBuildInputs = [
-    nim65s-talks-index.passthru.virtualenv
+    talks-index.passthru.virtualenv
     yarn-berry_4
     yarn-berry_4.yarnBerryConfigHook
   ];

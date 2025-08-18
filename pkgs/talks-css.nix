@@ -5,7 +5,7 @@
   yarn-berry_4,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
-  name = "nim65s-talks-css";
+  name = "talks-css";
 
   src = lib.fileset.toSource {
     root = ../.;

@@ -11,7 +11,7 @@
   writableTmpDirAsHomeHook,
 }:
 stdenvNoCC.mkDerivation {
-  name = "nim65s-talks-pdfs";
+  name = "talks-pdfs";
 
   src = lib.fileset.toSource {
     root = ../.;
