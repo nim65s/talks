@@ -6,6 +6,7 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   name = "talks-css";
+  version = "2.0.0";
 
   src = lib.fileset.toSource {
     root = ../.;
