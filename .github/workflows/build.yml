@@ -19,10 +19,6 @@ jobs:
           primary-key: nix-${{ hashFiles('**/*.nix', '**/flake.lock') }}
       - run: nix flake check -L
       - run: nix build -L
-      - uses: actions/upload-artifact@v4
-        with:
-          path: result/
-          name: public
       - uses: actions/upload-pages-artifact@v3
         with:
           path: result/
@@ -70,7 +66,7 @@ jobs:
       id-token: write
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ github.ref_name }}
       - run: curl https://github.com/nim65s.gpg | gpg --import
@@ -78,8 +74,16 @@ jobs:
         run: >
           git verify-tag --raw ${{ github.ref_name }} 2>&1
           | grep -q 'VALIDSIG 9B1A79065D2F2B806C8A5A1C7D2ACDAF4653CF28'
-      - uses: actions/download-artifact@v4
-      - run: make release
+      - uses: nixbuild/nix-quick-install-action@v32
+        with:
+          nix_conf: |
+            keep-env-derivations = true
+            keep-outputs = true
+      - name: Restore and save Nix store
+        uses: nix-community/cache-nix-action@v6
+        with:
+          primary-key: nix-${{ hashFiles('**/*.nix', '**/flake.lock') }}
+      - run: nix develop . --command make release
       - run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
       - run: gh release create -t "Release ${{ env.TAG}}" ${{ env.TAG }} nim65s-talks.tar.xz
         env:
