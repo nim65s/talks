@@ -15,8 +15,8 @@ monofont: Source Code Pro
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-tooling.pdf`](https://homepages.laas.fr/gsaurel/talks/tooling.pdf)
+[`https://homepages.laas.fr/gsaurel/
+tooling.pdf`](https://homepages.laas.fr/gsaurel/tooling.pdf)
 
 ### Under License
 

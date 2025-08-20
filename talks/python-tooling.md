@@ -14,8 +14,8 @@ monofont: Source Code Pro
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-python-tooling.pdf`](https://homepages.laas.fr/gsaurel/talks/python-tooling.pdf)
+[`https://homepages.laas.fr/gsaurel/
+python-tooling.pdf`](https://homepages.laas.fr/gsaurel/python-tooling.pdf)
 
 ### Under License
 
@@ -191,7 +191,7 @@ sorts imports.
 
 ## Others
 
-ref. "[Managing Python Packages](https://homepages.laas.fr/gsaurel/talks/managing-python-packages.pdf)"
+ref. "[Managing Python Packages](https://homepages.laas.fr/gsaurel/managing-python-packages.pdf)"
 
 # Tests
 

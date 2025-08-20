@@ -169,8 +169,8 @@ Mail: [gsaurel@laas.fr](mailto::gsaurel@laas.fr)
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-rust-hpc.pdf`](https://homepages.laas.fr/gsaurel/talks/rust-hpc.pdf)
+[`https://homepages.laas.fr/gsaurel/
+rust-hpc.pdf`](https://homepages.laas.fr/gsaurel/rust-hpc.pdf)
 [`https://gitlab.laas.fr/gsaurel/talks :
 rust-hpc.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/rust-hpc.md)
 

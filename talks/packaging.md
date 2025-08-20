@@ -18,8 +18,8 @@ urls:
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-packaging.pdf`](https://homepages.laas.fr/gsaurel/talks/packaging.pdf)
+[`https://homepages.laas.fr/gsaurel/
+packaging.pdf`](https://homepages.laas.fr/gsaurel/packaging.pdf)
 
 ### Under License
 
@@ -557,7 +557,7 @@ https://github.com/cmake-wheel/cmeel-example
 
 ## links reminder
 
-[`https://homepages.laas.fr/gsaurel/talks/
-packaging.pdf`](https://homepages.laas.fr/gsaurel/talks/packaging.pdf)
+[`https://homepages.laas.fr/gsaurel/
+packaging.pdf`](https://homepages.laas.fr/gsaurel/packaging.pdf)
 
 \url{https://matrix.to/\#/room/\#allo-pi2:laas.fr}

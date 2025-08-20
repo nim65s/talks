@@ -18,8 +18,8 @@ urls:
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-nix-rob.pdf`](https://homepages.laas.fr/gsaurel/talks/nix-rob.pdf)
+[`https://homepages.laas.fr/gsaurel/
+nix-rob.pdf`](https://homepages.laas.fr/gsaurel/nix-rob.pdf)
 
 [`https://gitlab.laas.fr/gsaurel/talks :
 nix-rob.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/nix-rob.md)
@@ -390,10 +390,10 @@ Gestion des secrets par utilisateur et par machine
 
 ### Links
 
-- [`https://homepages.laas.fr/gsaurel/talks/
-home-manager.pdf`](https://homepages.laas.fr/gsaurel/talks/home-manager.pdf)
+- [`https://homepages.laas.fr/gsaurel/
+home-manager.pdf`](https://homepages.laas.fr/gsaurel/home-manager.pdf)
 [(enregistrement)](https://www.youtube.com/watch?v=dp-9jkSsWWs)
-- [`https://homepages.laas.fr/gsaurel/talks/
-nix-rob.pdf`](https://homepages.laas.fr/gsaurel/talks/nix-rob.pdf)
+- [`https://homepages.laas.fr/gsaurel/
+nix-rob.pdf`](https://homepages.laas.fr/gsaurel/nix-rob.pdf)
 
 ### References

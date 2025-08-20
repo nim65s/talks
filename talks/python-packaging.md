@@ -18,8 +18,8 @@ urls:
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-python-packaging.pdf`](https://homepages.laas.fr/gsaurel/talks/python-packaging.pdf)
+[`https://homepages.laas.fr/gsaurel/
+python-packaging.pdf`](https://homepages.laas.fr/gsaurel/python-packaging.pdf)
 
 ### Under License
 
@@ -269,12 +269,12 @@ Come to the next formations to know more !
 
 ### Prior art
 
-- [Managing Python Packages](https://homepages.laas.fr/gsaurel/talks/managing-python-packages.pdf) (2019)
-- [Python Tooling](https://homepages.laas.fr/gsaurel/talks/python-tooling.pdf) (2022)
+- [Managing Python Packages](https://homepages.laas.fr/gsaurel/managing-python-packages.pdf) (2019)
+- [Python Tooling](https://homepages.laas.fr/gsaurel/python-tooling.pdf) (2022)
 
 ### This presentation
 
-[`https://homepages.laas.fr/gsaurel/talks/
-python-packaging.pdf`](https://homepages.laas.fr/gsaurel/talks/python-packaging.pdf)
+[`https://homepages.laas.fr/gsaurel/
+python-packaging.pdf`](https://homepages.laas.fr/gsaurel/python-packaging.pdf)
 
 \url{https://matrix.to/\#/room/\#allo-pi2:laas.fr}

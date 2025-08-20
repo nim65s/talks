@@ -18,8 +18,8 @@ urls:
 
 \centering
 
-[`homepages.laas.fr/gsaurel/talks/
-managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/talks/managing-python-packages.pdf)
+[`homepages.laas.fr/gsaurel/
+managing-python-packages.pdf`](https://homepages.laas.fr/gsaurel/managing-python-packages.pdf)
 
 ### Under License
 

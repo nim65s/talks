@@ -18,8 +18,8 @@ urls:
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-rust-intro.pdf`](https://homepages.laas.fr/gsaurel/talks/rust-intro.pdf)
+[`https://homepages.laas.fr/gsaurel/
+rust-intro.pdf`](https://homepages.laas.fr/gsaurel/rust-intro.pdf)
 
 ### Under License
 

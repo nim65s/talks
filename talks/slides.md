@@ -158,8 +158,8 @@ with Path("public/index.html").open("w") as f:
 </html>
 ```
 
-<https://homepages.laas.fr/gsaurel/talks/>
-<https://nim65s.github.io/talks/>
+<https://homepages.laas.fr/gsaurel/>
+<https://nim65s.github.io/>
 
 # Github Actions + Docker
 
@@ -247,8 +247,8 @@ outputs =
 
 [`https://gitlab.laas.fr/gsaurel/talks :
 slides.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/slides.md)
-[`https://homepages.laas.fr/gsaurel/talks/
-slides.pdf`](https://homepages.laas.fr/gsaurel/talks/slides.pdf)
+[`https://homepages.laas.fr/gsaurel/
+slides.pdf`](https://homepages.laas.fr/gsaurel/slides.pdf)
 
 ## Sous license
 

@@ -15,8 +15,8 @@ monofont: Source Code Pro
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-conception-orientee-objet-outils.pdf`](https://homepages.laas.fr/gsaurel/talks/conception-orientee-objet-outils.pdf)
+[`https://homepages.laas.fr/gsaurel/
+conception-orientee-objet-outils.pdf`](https://homepages.laas.fr/gsaurel/conception-orientee-objet-outils.pdf)
 
 ### Under License
 

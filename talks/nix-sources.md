@@ -22,8 +22,8 @@ urls:
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-nix-sources.pdf`](https://homepages.laas.fr/gsaurel/talks/nix-sources.pdf)
+[`https://homepages.laas.fr/gsaurel/
+nix-sources.pdf`](https://homepages.laas.fr/gsaurel/nix-sources.pdf)
 
 ### Source
 
@@ -212,8 +212,8 @@ pour un paquet, ou un environnement, ou un OS
 
 ### Slides
 
-[`https://homepages.laas.fr/gsaurel/talks/
-nix-sources.pdf`](https://homepages.laas.fr/gsaurel/talks/nix-sources.pdf)
+[`https://homepages.laas.fr/gsaurel/
+nix-sources.pdf`](https://homepages.laas.fr/gsaurel/nix-sources.pdf)
 
 ### Voir aussi
 

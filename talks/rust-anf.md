@@ -15,8 +15,8 @@ monofont: Source Code Pro
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-rust-anf.pdf`](https://homepages.laas.fr/gsaurel/talks/rust-anf.pdf)
+[`https://homepages.laas.fr/gsaurel/
+rust-anf.pdf`](https://homepages.laas.fr/gsaurel/rust-anf.pdf)
 
 ### Under License
 

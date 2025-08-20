@@ -15,8 +15,8 @@ monofont: Source Code Pro
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-git-forges.pdf`](https://homepages.laas.fr/gsaurel/talks/git-forges.pdf)
+[`https://homepages.laas.fr/gsaurel/
+git-forges.pdf`](https://homepages.laas.fr/gsaurel/git-forges.pdf)
 
 ### Under License
 

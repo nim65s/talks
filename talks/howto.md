@@ -14,7 +14,7 @@ monofont: Source Code Pro
 ### Available at
 
 - [`gitlab.laas.fr/gsaurel/talks : howto.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/howto.md)
-- [`homepages.laas.fr/gsaurel/talks/howto.pdf`](https://homepages.laas.fr/gsaurel/talks/howto.pdf)
+- [`homepages.laas.fr/gsaurel/howto.pdf`](https://homepages.laas.fr/gsaurel/howto.pdf)
 
 ### Under License
 

@@ -14,8 +14,8 @@ monofont: Source Code Pro
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-nix.pdf`](https://homepages.laas.fr/gsaurel/talks/nix.pdf)
+[`https://homepages.laas.fr/gsaurel/
+nix.pdf`](https://homepages.laas.fr/gsaurel/nix.pdf)
 
 [`https://gitlab.laas.fr/gsaurel/talks :
 nix.md`](https://gitlab.laas.fr/gsaurel/talks/-/blob/main/nix.md)
@@ -547,10 +547,10 @@ Mais prenez votre temps.
 
 ### Links
 
-- [`https://homepages.laas.fr/gsaurel/talks/
-home-manager.pdf`](https://homepages.laas.fr/gsaurel/talks/home-manager.pdf)
+- [`https://homepages.laas.fr/gsaurel/
+home-manager.pdf`](https://homepages.laas.fr/gsaurel/home-manager.pdf)
 [(enregistrement)](https://www.youtube.com/watch?v=dp-9jkSsWWs)
-- [`https://homepages.laas.fr/gsaurel/talks/
-nix-rob.pdf`](https://homepages.laas.fr/gsaurel/talks/nix-rob.pdf)
+- [`https://homepages.laas.fr/gsaurel/
+nix-rob.pdf`](https://homepages.laas.fr/gsaurel/nix-rob.pdf)
 
 ### References

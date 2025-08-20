@@ -24,8 +24,8 @@ urls:
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-home-manager.pdf`](https://homepages.laas.fr/gsaurel/talks/home-manager.pdf)
+[`https://homepages.laas.fr/gsaurel/
+home-manager.pdf`](https://homepages.laas.fr/gsaurel/home-manager.pdf)
 
 ### Source
 

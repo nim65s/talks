@@ -22,8 +22,8 @@ urls:
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-robotique-rust.pdf`](https://homepages.laas.fr/gsaurel/talks/robotique-rust.pdf)
+[`https://homepages.laas.fr/gsaurel/
+robotique-rust.pdf`](https://homepages.laas.fr/gsaurel/robotique-rust.pdf)
 
 ### Sous license
 

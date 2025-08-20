@@ -15,8 +15,8 @@ monofont: Source Code Pro
 
 \centering
 
-[`https://homepages.laas.fr/gsaurel/talks/
-modern-cmake.pdf`](https://homepages.laas.fr/gsaurel/talks/modern-cmake.pdf)
+[`https://homepages.laas.fr/gsaurel/
+modern-cmake.pdf`](https://homepages.laas.fr/gsaurel/modern-cmake.pdf)
 
 ### Under License
 
