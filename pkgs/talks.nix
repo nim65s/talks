@@ -7,7 +7,7 @@
 }:
 stdenvNoCC.mkDerivation {
   name = "talks";
-  version = "2.0.2";
+  version = "3.0.0";
 
   src = lib.fileset.toSource {
     root = ../.;
