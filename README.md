@@ -1,5 +1,10 @@
 # Talks
 
+:warning: This repository is obsolete.
+My talks are now at:
+- https://gitlab.laas.fr/gsaurel/homepage | https://homepages.laas.fr/gsaurel
+- https://github.com/nim65s/nim65s.github.io | https://nim65s.github.io/
+
 ## Dependencies / Build
 
 🔥
