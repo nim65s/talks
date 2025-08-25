@@ -19,7 +19,7 @@ jobs:
           primary-key: nix-${{ hashFiles('**/*.nix', '**/flake.lock') }}
       - run: nix flake check -L
       - run: nix build -L
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: result/
 
